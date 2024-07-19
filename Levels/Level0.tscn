@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://oa2s1vlitgul"]
 
-[ext_resource type="Texture2D" uid="uid://chyam4pwu36mo" path="res://GameAssets/PrototypeTile.png" id="1_moqy2"]
+[ext_resource type="Texture2D" uid="uid://chyam4pwu36mo" path="res://GameAssets/TileMap/PrototypeTile.png" id="1_moqy2"]
 [ext_resource type="PackedScene" uid="uid://cjm5w7wcwx88n" path="res://GameObjects/Player.tscn" id="2_qtb4c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbue4"]
@@ -22,4 +22,4 @@ format = 2
 layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65536, 0, 0, 131071, 0, 0, 131070, 0, 0, 131069, 0, 0, 131068, 0, 0, 131067, 0, 0, 131066, 0, 0, 131065, 0, 0, 131064, 0, 0, 131063, 0, 0, 131062, 0, 0, 131061, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_qtb4c")]
-position = Vector2(76, -33)
+position = Vector2(38, 15)

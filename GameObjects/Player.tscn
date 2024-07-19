@@ -1,13 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjm5w7wcwx88n"]
+[gd_scene load_steps=5 format=3 uid="uid://cjm5w7wcwx88n"]
 
 [ext_resource type="Script" path="res://GameObjects/Player.gd" id="1_dmfpa"]
+[ext_resource type="Texture2D" uid="uid://bl7x3d28hbvsl" path="res://GameAssets/Player/PrototypePlayer.png" id="2_rc71a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsln0"]
+size = Vector2(12, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_in8ix"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rc71a")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dmfpa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -6.5)
 shape = SubResource("RectangleShape2D_tsln0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_in8ix")
+animation = &"Idle"
