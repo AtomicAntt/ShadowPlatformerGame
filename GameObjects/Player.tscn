@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjm5w7wcwx88n"]
+
+[ext_resource type="Script" path="res://GameObjects/Player.gd" id="1_dmfpa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsln0"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_dmfpa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tsln0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
