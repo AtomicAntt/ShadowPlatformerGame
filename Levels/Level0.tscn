@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://oa2s1vlitgul"]
+[gd_scene load_steps=9 format=3 uid="uid://oa2s1vlitgul"]
 
 [ext_resource type="Texture2D" uid="uid://chyam4pwu36mo" path="res://GameAssets/TileMap/PrototypeTile.png" id="1_moqy2"]
 [ext_resource type="Texture2D" uid="uid://ciuduf3u7bsko" path="res://GameAssets/TileMap/Prototype Background.png" id="2_qha1v"]
 [ext_resource type="PackedScene" uid="uid://cjm5w7wcwx88n" path="res://GameObjects/Player.tscn" id="2_qtb4c"]
+[ext_resource type="Texture2D" uid="uid://csllib2c1x0wg" path="res://GameAssets/Lighting/light.png" id="4_6c87i"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7g436"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -41,8 +42,13 @@ layer_1/tile_data = PackedInt32Array(65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 6554
 position = Vector2(38, 15)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-position = Vector2(7, -137)
+position = Vector2(49, -114)
 shadow_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.273873, 0.273873, 0.273873, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(45, -142)
+shadow_enabled = true
+texture = ExtResource("4_6c87i")
