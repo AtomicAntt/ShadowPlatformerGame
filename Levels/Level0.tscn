@@ -43,9 +43,17 @@ position = Vector2(-105, 15)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(22, -149)
-energy = 0.7
+energy = 0.8
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
 
 [node name="Light" parent="." instance=ExtResource("4_247hf")]
+
+[node name="PointLight2D" parent="Light" index="0"]
+position = Vector2(14, -113)
+
+[node name="LightSwitch" parent="Light" index="1"]
+position = Vector2(-72, -8)
+
+[editable path="Light"]
