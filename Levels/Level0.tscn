@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://chyam4pwu36mo" path="res://GameAssets/TileMap/PrototypeTile.png" id="1_moqy2"]
 [ext_resource type="Texture2D" uid="uid://ciuduf3u7bsko" path="res://GameAssets/TileMap/Prototype Background.png" id="2_qha1v"]
 [ext_resource type="PackedScene" uid="uid://cjm5w7wcwx88n" path="res://GameObjects/Player.tscn" id="2_qtb4c"]
-[ext_resource type="Texture2D" uid="uid://csllib2c1x0wg" path="res://GameAssets/Lighting/light.png" id="4_6c87i"]
+[ext_resource type="PackedScene" uid="uid://uuy3ruaxplwy" path="res://GameObjects/light.tscn" id="4_247hf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7g436"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -39,16 +39,13 @@ layer_1/name = "Floor"
 layer_1/tile_data = PackedInt32Array(65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65548, 0, 0, 65536, 0, 0, 131071, 0, 0, 131070, 0, 0, 131069, 0, 0, 131068, 0, 0, 131067, 0, 0, 131066, 0, 0, 131065, 0, 0, 131064, 0, 0, 131063, 0, 0, 131062, 0, 0, 131061, 0, 0, -196601, 0, 0, -196600, 0, 0, -196599, 0, 0, -196598, 0, 0, -196597, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_qtb4c")]
-position = Vector2(38, 15)
+position = Vector2(-105, 15)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-position = Vector2(49, -114)
-shadow_enabled = true
+position = Vector2(22, -149)
+energy = 0.7
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.273873, 0.273873, 0.273873, 1)
+color = Color(0, 0, 0, 1)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(45, -142)
-shadow_enabled = true
-texture = ExtResource("4_6c87i")
+[node name="Light" parent="." instance=ExtResource("4_247hf")]
