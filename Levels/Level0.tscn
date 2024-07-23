@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://oa2s1vlitgul"]
+[gd_scene load_steps=11 format=3 uid="uid://oa2s1vlitgul"]
 
 [ext_resource type="Texture2D" uid="uid://chyam4pwu36mo" path="res://GameAssets/TileMap/PrototypeTile.png" id="1_moqy2"]
 [ext_resource type="Texture2D" uid="uid://ciuduf3u7bsko" path="res://GameAssets/TileMap/Prototype Background.png" id="2_qha1v"]
 [ext_resource type="PackedScene" uid="uid://cjm5w7wcwx88n" path="res://GameObjects/Player.tscn" id="2_qtb4c"]
 [ext_resource type="PackedScene" uid="uid://uuy3ruaxplwy" path="res://GameObjects/light.tscn" id="4_247hf"]
+[ext_resource type="Texture2D" uid="uid://7jmmocrooily" path="res://GameAssets/Lighting/spotlight.jpg" id="5_iabsv"]
+[ext_resource type="Script" path="res://GameObjects/LightDetection.gd" id="6_q5ktl"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7g436"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -55,5 +57,18 @@ position = Vector2(14, -113)
 
 [node name="LightSwitch" parent="Light" index="1"]
 position = Vector2(-72, -8)
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+texture_filter = 2
+position = Vector2(-31, -10)
+rotation = 1.5708
+scale = Vector2(1.00552, 1)
+energy = 0.9
+shadow_enabled = true
+texture = ExtResource("5_iabsv")
+texture_scale = 0.25
+script = ExtResource("6_q5ktl")
+
+[node name="RayCast2D" type="RayCast2D" parent="PointLight2D2"]
 
 [editable path="Light"]

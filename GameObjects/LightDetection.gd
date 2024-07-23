@@ -1,6 +1,6 @@
 extends PointLight2D
 
-const NUM_RAYS = 120
+const NUM_RAYS = 80
 const RAY_LENGTH = 200
 
 var raycasts = []
