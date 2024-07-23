@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjm5w7wcwx88n"]
+[gd_scene load_steps=8 format=3 uid="uid://cjm5w7wcwx88n"]
 
 [ext_resource type="Script" path="res://GameObjects/Player.gd" id="1_dmfpa"]
 [ext_resource type="Texture2D" uid="uid://bl7x3d28hbvsl" path="res://GameAssets/Player/PrototypePlayer.png" id="2_rc71a"]
+[ext_resource type="Texture2D" uid="uid://c5i2phhbd3f8y" path="res://GameAssets/UserInterface/Health/progressFramev3.png" id="3_rjaip"]
+[ext_resource type="Texture2D" uid="uid://bel0v8bb7f6k" path="res://GameAssets/UserInterface/Health/progressv2.png" id="4_j1jhv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsln0"]
 size = Vector2(12, 13)
@@ -40,3 +42,12 @@ animation = &"Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
 position = Vector2(1, -6.5)
 shape = SubResource("RectangleShape2D_co0ax")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -6.0
+offset_top = -23.0
+offset_right = 8.0
+offset_bottom = -17.0
+value = 100.0
+texture_under = ExtResource("3_rjaip")
+texture_progress = ExtResource("4_j1jhv")
