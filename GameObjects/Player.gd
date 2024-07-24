@@ -6,12 +6,16 @@ var state: States = States.AIR
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 
+const MAX_HEALTH: float = 100
+var health: float = 100
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta: float):
 	move_and_slide()
 	fall(delta)
+	check_light_sources(delta) # Delta is passed because that is how much the player hurts/heals
 	
 	match state:
 		States.AIR:
@@ -38,3 +42,15 @@ func get_horizontal_movement() -> void:
 
 func fall(delta: float) -> void:
 	velocity.y += gravity * delta
+
+func hurt(damage: float) -> void:
+	health -= damage
+	$HealthBar.value = health
+
+func check_light_sources(delta: float) -> void:
+	for light_source in get_tree().get_nodes_in_group("LightSource"):
+		if light_source.onPlayer:
+			print(health)
+			hurt(delta * 100)
+		else:
+			hurt(-delta * 100)

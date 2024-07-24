@@ -43,7 +43,7 @@ animation = &"Idle"
 position = Vector2(1, -6.5)
 shape = SubResource("RectangleShape2D_co0ax")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="HealthBar" type="TextureProgressBar" parent="."]
 offset_left = -6.0
 offset_top = -23.0
 offset_right = 8.0
