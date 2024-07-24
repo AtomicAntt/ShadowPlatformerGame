@@ -12,10 +12,13 @@ var health: float = 100
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _process(delta: float):
+	check_light_sources(delta)
+
 func _physics_process(delta: float):
 	move_and_slide()
 	fall(delta)
-	check_light_sources(delta) # Delta is passed because that is how much the player hurts/heals
+	#check_light_sources(delta) # Delta is passed because that is how much the player hurts/heals
 	
 	match state:
 		States.AIR:
@@ -46,11 +49,21 @@ func fall(delta: float) -> void:
 func hurt(damage: float) -> void:
 	health -= damage
 	$HealthBar.value = health
+	alter_transparency(health)
 
 func check_light_sources(delta: float) -> void:
+	var inLightSource: bool = false
+	
 	for light_source in get_tree().get_nodes_in_group("LightSource"):
-		if light_source.onPlayer:
-			print(health)
+		# I check if it is not in light source before hurting because only one light source hurts the player at a time.
+		if light_source.sees_player() and not inLightSource:
+			print("hurting now")
 			hurt(delta * 100)
-		else:
-			hurt(-delta * 100)
+	
+	# If no light sources are found, heal player by unhurting them:
+	#if not inLightSource:
+		#hurt(-delta * 100)
+	
+
+func alter_transparency(health: float) -> void:
+	$AnimatedSprite2D.modulate.a = health / MAX_HEALTH

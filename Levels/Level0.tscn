@@ -206,7 +206,7 @@ position = Vector2(-72, -8)
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 texture_filter = 2
-position = Vector2(-8, 115)
+position = Vector2(-1000, -526)
 rotation = 1.5708
 scale = Vector2(1.00552, 1)
 energy = 0.9
