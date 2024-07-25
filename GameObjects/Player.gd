@@ -21,7 +21,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta: float):
 	move_and_slide()
 	fall(delta)
-	check_light_sources(delta) # Delta is passed because that is how much the player hurts.
+	#check_light_sources(delta) # Delta is passed because that is how much the player hurts.
 	heal_if_criteria_met(delta) # Delta is passed for two reasons: 
 	# 1. Increment heal progress to check if criteria is met.
 	# 2. It is how much the player heals.
@@ -62,18 +62,16 @@ func hurt(damage: float) -> void:
 	if damage > 0: # If it heals instead of doing damage (negative number)
 		heal_progress = 0.0 # Reset progress, now the player must wait HEAL CRITERIA seconds to heal again.
 
-func check_light_sources(delta: float) -> void:
-	var inLightSource: bool = false
-	
-	for light_source in get_tree().get_nodes_in_group("LightSource"):
-		if light_source.sees_player():
-			hurt(delta * 100)
-			return # To only get hurt by one light source at a time
+#func check_light_sources(delta: float) -> void:
+	#for light_source in get_tree().get_nodes_in_group("LightSource"):
+		#if light_source.sees_player():
+			#hurt(delta * 100)
+			#return # To only get hurt by one light source at a time
 
 func heal_if_criteria_met(delta: float) -> void:
 	heal_progress += delta
 	#print(heal_progress)
-	if heal_progress >= HEAL_CRITERIA:
+	if heal_progress >= HEAL_CRITERIA and health < MAX_HEALTH:
 		hurt(-delta * 100)
 
 func alter_transparency(health: float) -> void:

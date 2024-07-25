@@ -5,6 +5,9 @@ const RAY_LENGTH = 200
 
 var raycasts = []
 
+func _process(delta: float) -> void:
+	check_player(delta)
+
 func _ready():
 	for i in range(NUM_RAYS):
 		var raycast = RayCast2D.new()
@@ -13,10 +16,10 @@ func _ready():
 		add_child(raycast)
 		raycasts.append(raycast)
 
-func sees_player() -> bool:
+func check_player(delta: float) -> void:
 	for raycast in raycasts:
 		if raycast.is_colliding():
 			var collider = raycast.get_collider()
 			if collider.is_in_group("Player"):
-				return true
-	return false
+				collider.hurt(delta * 100)
+				return
