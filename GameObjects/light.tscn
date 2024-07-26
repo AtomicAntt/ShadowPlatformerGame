@@ -16,8 +16,6 @@ shadow_enabled = true
 texture = ExtResource("2_2cwsh")
 script = ExtResource("3_pcb62")
 
-[node name="RayCast2D" type="RayCast2D" parent="PointLight2D"]
-
 [node name="LightSwitch" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightSwitch"]
