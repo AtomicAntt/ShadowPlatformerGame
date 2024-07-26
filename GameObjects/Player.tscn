@@ -33,6 +33,7 @@ shape = SubResource("RectangleShape2D_tsln0")
 position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_in8ix")
 animation = &"Idle"
@@ -44,6 +45,7 @@ position = Vector2(1, -6.5)
 shape = SubResource("RectangleShape2D_co0ax")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
+z_index = 1
 offset_left = -6.0
 offset_top = -23.0
 offset_right = 8.0
