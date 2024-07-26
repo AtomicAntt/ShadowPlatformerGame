@@ -62,12 +62,6 @@ func hurt(damage: float) -> void:
 	if damage > 0: # If it heals instead of doing damage (negative number)
 		heal_progress = 0.0 # Reset progress, now the player must wait HEAL CRITERIA seconds to heal again.
 
-#func check_light_sources(delta: float) -> void:
-	#for light_source in get_tree().get_nodes_in_group("LightSource"):
-		#if light_source.sees_player():
-			#hurt(delta * 100)
-			#return # To only get hurt by one light source at a time
-
 func heal_if_criteria_met(delta: float) -> void:
 	heal_progress += delta
 	#print(heal_progress)
@@ -76,3 +70,10 @@ func heal_if_criteria_met(delta: float) -> void:
 
 func alter_transparency(health: float) -> void:
 	$AnimatedSprite2D.modulate.a = health / MAX_HEALTH
+	
+	if health < MAX_HEALTH:
+		var tween = get_tree().create_tween()
+		tween.tween_property($HealthBar, "modulate:a", 1, 0.2)
+	else:
+		var tween = get_tree().create_tween()
+		tween.tween_property($HealthBar, "modulate:a", 0, 0.2)

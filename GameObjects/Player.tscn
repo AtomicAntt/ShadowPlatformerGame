@@ -45,6 +45,7 @@ position = Vector2(1, -6.5)
 shape = SubResource("RectangleShape2D_co0ax")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0)
 z_index = 1
 offset_left = -6.0
 offset_top = -23.0
