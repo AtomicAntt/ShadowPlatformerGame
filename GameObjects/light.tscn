@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://uuy3ruaxplwy"]
+[gd_scene load_steps=8 format=3 uid="uid://uuy3ruaxplwy"]
 
 [ext_resource type="Script" path="res://GameObjects/Light.gd" id="1_3f7l6"]
 [ext_resource type="Texture2D" uid="uid://csllib2c1x0wg" path="res://GameAssets/Lighting/light.png" id="2_2cwsh"]
 [ext_resource type="Script" path="res://GameObjects/LightDetection.gd" id="3_pcb62"]
 [ext_resource type="Texture2D" uid="uid://dqo2cjpx6s0br" path="res://GameAssets/Interactables/Light Switch.png" id="4_upbmp"]
+[ext_resource type="FontFile" uid="uid://envxbcwayc1r" path="res://GameAssets/Fonts/m5x7.ttf" id="5_ioe0u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltwyl"]
 size = Vector2(38, 39)
+
+[sub_resource type="Theme" id="Theme_1p666"]
+default_font = ExtResource("5_ioe0u")
 
 [node name="Light" type="Node2D"]
 script = ExtResource("1_3f7l6")
@@ -24,6 +28,15 @@ shape = SubResource("RectangleShape2D_ltwyl")
 
 [node name="Sprite" type="Sprite2D" parent="LightSwitch"]
 texture = ExtResource("4_upbmp")
+
+[node name="Label" type="Label" parent="LightSwitch"]
+z_index = 2
+offset_left = -62.0
+offset_top = -32.0
+offset_right = 107.0
+offset_bottom = -19.0
+theme = SubResource("Theme_1p666")
+text = "Press 'e' to turn off light"
 
 [connection signal="area_entered" from="LightSwitch" to="." method="_on_light_switch_area_entered"]
 [connection signal="area_exited" from="LightSwitch" to="." method="_on_light_switch_area_exited"]

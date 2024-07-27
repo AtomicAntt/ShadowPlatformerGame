@@ -11,7 +11,10 @@ func _input(event):
 func _on_light_switch_area_entered(area):
 	if area.is_in_group("PlayerHitbox"):
 		interactable = true
+		$LightSwitch/Label.visible = true
 
 func _on_light_switch_area_exited(area):
 	if area.is_in_group("PlayerHitbox"):
 		interactable = false
+		$LightSwitch/Label.visible = false
+		

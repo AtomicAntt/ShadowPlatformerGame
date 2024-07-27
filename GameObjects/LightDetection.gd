@@ -2,6 +2,7 @@ extends PointLight2D
 
 const NUM_RAYS = 160
 const RAY_LENGTH = 200
+@export var DEGREES: float = 360
 
 var raycasts = []
 
@@ -12,7 +13,7 @@ func _ready():
 	for i in range(NUM_RAYS):
 		var raycast = RayCast2D.new()
 		raycast.target_position = Vector2(RAY_LENGTH, 0)
-		raycast.rotation_degrees = i * (360 / NUM_RAYS)
+		raycast.rotation_degrees = i * (DEGREES / NUM_RAYS)
 		add_child(raycast)
 		raycasts.append(raycast)
 
