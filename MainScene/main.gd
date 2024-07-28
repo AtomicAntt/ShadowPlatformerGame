@@ -38,3 +38,9 @@ func _on_start_pressed():
 
 func _on_restart_pressed():
 	reload_level()
+	
+func _on_quit_to_main_menu_pressed():
+	unload_level()
+	$Main2D/CanvasLayer/GameOver.visible = false
+	$MainMenu.visible = true
+	

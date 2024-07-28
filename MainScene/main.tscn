@@ -145,7 +145,7 @@ texture_normal = ExtResource("10_q2x0t")
 texture_pressed = ExtResource("11_wrwmw")
 texture_hover = ExtResource("12_x8cmi")
 
-[node name="Quit" type="TextureButton" parent="Main2D/CanvasLayer/GameOver/VBoxContainer"]
+[node name="QuitToMainMenu" type="TextureButton" parent="Main2D/CanvasLayer/GameOver/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_4lp8n")
 texture_pressed = ExtResource("6_8vjuy")
@@ -155,3 +155,4 @@ texture_hover = ExtResource("7_35tcy")
 
 [connection signal="pressed" from="MainMenu/NinePatchRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main2D/CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Main2D/CanvasLayer/GameOver/VBoxContainer/QuitToMainMenu" to="." method="_on_quit_to_main_menu_pressed"]
