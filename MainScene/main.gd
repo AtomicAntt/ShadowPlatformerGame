@@ -2,10 +2,15 @@ extends Control
 
 @onready var main_2d = $Main2D
 
+var current_level: int = 0
+
 var level_instance: Node2D
 
 #func _ready():
 	#load_level("Level0")
+
+func game_over() -> void:
+	$Main2D/CanvasLayer/GameOver.visible = true
 
 func unload_level() -> void:
 	if is_instance_valid(level_instance):
@@ -21,7 +26,15 @@ func load_level(level_name : String) -> void:
 		level_instance = level_resource.instantiate()
 		main_2d.add_child(level_instance)
 
+func load_next_level() -> void:
+	load_level("Level"+str(current_level+1))
+
+func reload_level() -> void:
+	load_level("Level"+str(current_level))
+	$Main2D/CanvasLayer/GameOver.visible = false
+
 func _on_start_pressed():
 	load_level("level0")
-	
 
+func _on_restart_pressed():
+	reload_level()

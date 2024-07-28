@@ -15,6 +15,7 @@ var health: float = 100
 const HEAL_CRITERIA: float = 0.2
 var heal_progress: float = 0.0
 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -58,6 +59,8 @@ func hurt(damage: float) -> void:
 	
 	if health <= 0:
 		state = States.DEAD
+		var main = get_tree().get_nodes_in_group("main")[0]
+		main.game_over()
 	
 	$HealthBar.value = health
 	alter_transparency(health)

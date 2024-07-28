@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://drflwskxvv7pp"]
+[gd_scene load_steps=13 format=3 uid="uid://drflwskxvv7pp"]
 
 [ext_resource type="Script" path="res://MainScene/main.gd" id="1_u7jia"]
 [ext_resource type="Texture2D" uid="uid://w18ykg2xvhbe" path="res://GameAssets/UserInterface/MainMenu/Buttons/StartGame Animated1.png" id="2_ft7cr"]
@@ -8,8 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://mqnvg21l78q2" path="res://GameAssets/UserInterface/MainMenu/Buttons/Quit Animated1.png" id="5_4lp8n"]
 [ext_resource type="Texture2D" uid="uid://dxmqj6omxbmi5" path="res://GameAssets/UserInterface/MainMenu/Buttons/Quit Animated3.png" id="6_8vjuy"]
 [ext_resource type="Texture2D" uid="uid://kg27u720haff" path="res://GameAssets/UserInterface/MainMenu/Buttons/Quit Animated2.png" id="7_35tcy"]
+[ext_resource type="Texture2D" uid="uid://bnbw8afoa4l6n" path="res://GameAssets/UserInterface/MainMenu/Text/Game Over Text Enlarged.png" id="9_ccbr1"]
+[ext_resource type="Texture2D" uid="uid://w75q2vtcj1kf" path="res://GameAssets/UserInterface/MainMenu/Buttons/Restart Animated1.png" id="10_q2x0t"]
+[ext_resource type="Texture2D" uid="uid://cki562nejhhue" path="res://GameAssets/UserInterface/MainMenu/Buttons/Restart Animated3.png" id="11_wrwmw"]
+[ext_resource type="Texture2D" uid="uid://h2u75tmsf5gi" path="res://GameAssets/UserInterface/MainMenu/Buttons/Restart Animated2.png" id="12_x8cmi"]
 
-[node name="MainScene" type="Control"]
+[node name="MainScene" type="Control" groups=["main"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,4 +91,67 @@ texture_hover = ExtResource("7_35tcy")
 
 [node name="Main2D" type="Node2D" parent="."]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Main2D"]
+
+[node name="GameOver" type="Control" parent="Main2D/CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="ColorRect" parent="Main2D/CanvasLayer/GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.658824, 0, 0, 0.2)
+
+[node name="GameOverText" type="TextureRect" parent="Main2D/CanvasLayer/GameOver"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.0
+offset_top = 54.0
+offset_right = 95.0
+offset_bottom = 74.0
+grow_horizontal = 2
+texture = ExtResource("9_ccbr1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main2D/CanvasLayer/GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -56.5
+offset_right = 28.0
+offset_bottom = -16.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Restart" type="TextureButton" parent="Main2D/CanvasLayer/GameOver/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_q2x0t")
+texture_pressed = ExtResource("11_wrwmw")
+texture_hover = ExtResource("12_x8cmi")
+
+[node name="Quit" type="TextureButton" parent="Main2D/CanvasLayer/GameOver/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_4lp8n")
+texture_pressed = ExtResource("6_8vjuy")
+texture_hover = ExtResource("7_35tcy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main2D/CanvasLayer"]
+
 [connection signal="pressed" from="MainMenu/NinePatchRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Main2D/CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

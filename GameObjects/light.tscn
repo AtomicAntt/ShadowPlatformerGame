@@ -30,6 +30,7 @@ shape = SubResource("RectangleShape2D_ltwyl")
 texture = ExtResource("4_upbmp")
 
 [node name="Label" type="Label" parent="LightSwitch"]
+visible = false
 z_index = 2
 offset_left = -62.0
 offset_top = -32.0
