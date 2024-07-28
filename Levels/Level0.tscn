@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://oa2s1vlitgul"]
+[gd_scene load_steps=14 format=3 uid="uid://oa2s1vlitgul"]
 
 [ext_resource type="Texture2D" uid="uid://chyam4pwu36mo" path="res://GameAssets/TileMap/PrototypeTile.png" id="1_moqy2"]
 [ext_resource type="Texture2D" uid="uid://ciuduf3u7bsko" path="res://GameAssets/TileMap/Prototype Background.png" id="2_qha1v"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://uuy3ruaxplwy" path="res://GameObjects/light.tscn" id="4_247hf"]
 [ext_resource type="Texture2D" uid="uid://7jmmocrooily" path="res://GameAssets/Lighting/spotlight.jpg" id="5_iabsv"]
 [ext_resource type="Script" path="res://GameObjects/LightDetection.gd" id="6_q5ktl"]
+[ext_resource type="Texture2D" uid="uid://blgb8svu6ofhi" path="res://GameAssets/Guard/robo sideview2.png" id="8_843dl"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7g436"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -217,5 +218,9 @@ script = ExtResource("6_q5ktl")
 DEGREES = 90.0
 
 [node name="RayCast2D" type="RayCast2D" parent="PointLight2D2"]
+
+[node name="RoboSideview2" type="Sprite2D" parent="."]
+position = Vector2(-139, 2)
+texture = ExtResource("8_843dl")
 
 [editable path="Light"]

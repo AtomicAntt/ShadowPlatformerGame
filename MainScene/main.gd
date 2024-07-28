@@ -4,8 +4,8 @@ extends Control
 
 var level_instance: Node2D
 
-func _ready():
-	load_level("Level0")
+#func _ready():
+	#load_level("Level0")
 
 func unload_level() -> void:
 	if is_instance_valid(level_instance):
