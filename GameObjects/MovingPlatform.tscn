@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgihg28oggtje"]
+
+[ext_resource type="Script" path="res://GameObjects/MovingPlatform.gd" id="1_lrryr"]
+[ext_resource type="Texture2D" uid="uid://bdf876rbo6wm6" path="res://GameAssets/TileMap/Moving Platform White.png" id="1_tcice"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylukv"]
+size = Vector2(48, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_re10b"]
+polygon = PackedVector2Array(-22, -8, -22, -7, -23, -7, -23, -6, -24, -6, -24, 5, -23, 5, -23, 7, -22, 7, -22, 8, 22, 8, 22, 7, 23, 7, 23, 5, 24, 5, 24, -6, 23, -6, 23, -7, 22, -7, 22, -8)
+
+[node name="MovingPlatform" type="Node2D"]
+script = ExtResource("1_lrryr")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture = ExtResource("1_tcice")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_ylukv")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatableBody2D"]
+occluder = SubResource("OccluderPolygon2D_re10b")
