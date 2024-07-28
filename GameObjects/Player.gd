@@ -37,7 +37,7 @@ func _physics_process(delta: float):
 				velocity.y += JUMP_VELOCITY
 				state = States.AIR
 		States.DEAD:
-			pass
+			velocity.x = lerp(velocity.x, 0.0, 0.4)
 	
 func get_horizontal_movement() -> void:
 	if Input.is_action_pressed("right"):
@@ -55,6 +55,9 @@ func fall(delta: float) -> void:
 func hurt(damage: float) -> void:
 	health -= damage
 	clampf(health, 0.0, MAX_HEALTH)
+	
+	if health <= 0:
+		state = States.DEAD
 	
 	$HealthBar.value = health
 	alter_transparency(health)
