@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://drflwskxvv7pp"]
+[gd_scene load_steps=9 format=3 uid="uid://drflwskxvv7pp"]
 
 [ext_resource type="Script" path="res://MainScene/main.gd" id="1_u7jia"]
 [ext_resource type="Texture2D" uid="uid://w18ykg2xvhbe" path="res://GameAssets/UserInterface/MainMenu/Buttons/StartGame Animated1.png" id="2_ft7cr"]
+[ext_resource type="Texture2D" uid="uid://bqg4ks5qvd0a" path="res://GameAssets/UserInterface/MainMenu/Boxes/gui 9slice.png" id="2_lgupu"]
 [ext_resource type="Texture2D" uid="uid://b36l0pl2r164t" path="res://GameAssets/UserInterface/MainMenu/Buttons/StartGame Animated3.png" id="3_biuq8"]
 [ext_resource type="Texture2D" uid="uid://u5iux7rjnwp6" path="res://GameAssets/UserInterface/MainMenu/Buttons/StartGame Animated2.png" id="4_u8au1"]
 [ext_resource type="Texture2D" uid="uid://mqnvg21l78q2" path="res://GameAssets/UserInterface/MainMenu/Buttons/Quit Animated1.png" id="5_4lp8n"]
@@ -30,10 +31,35 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -11.0
+offset_right = -1.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -74.0
+offset_right = 61.5
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lgupu")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,21 +73,16 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Start" type="TextureButton" parent="MainMenu/VBoxContainer"]
+[node name="Start" type="TextureButton" parent="MainMenu/NinePatchRect/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_ft7cr")
 texture_pressed = ExtResource("3_biuq8")
 texture_hover = ExtResource("4_u8au1")
 
-[node name="Quit" type="TextureButton" parent="MainMenu/VBoxContainer"]
+[node name="Quit" type="TextureButton" parent="MainMenu/NinePatchRect/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_4lp8n")
 texture_pressed = ExtResource("6_8vjuy")
 texture_hover = ExtResource("7_35tcy")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="MainMenu"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Main2D" type="Node2D" parent="."]
