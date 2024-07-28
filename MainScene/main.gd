@@ -19,3 +19,8 @@ func load_level(level_name : String) -> void:
 	if level_resource:
 		level_instance = level_resource.instantiate()
 		main_2d.add_child(level_instance)
+
+func _on_start_pressed():
+	load_level("level0")
+	
+

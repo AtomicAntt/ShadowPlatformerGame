@@ -86,3 +86,5 @@ texture_pressed = ExtResource("6_8vjuy")
 texture_hover = ExtResource("7_35tcy")
 
 [node name="Main2D" type="Node2D" parent="."]
+
+[connection signal="pressed" from="MainMenu/NinePatchRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
