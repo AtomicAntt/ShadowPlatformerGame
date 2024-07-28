@@ -22,3 +22,6 @@ shape = SubResource("RectangleShape2D_ylukv")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatableBody2D"]
 occluder = SubResource("OccluderPolygon2D_re10b")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(110, 0)
