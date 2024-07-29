@@ -26,11 +26,11 @@ func check_player(delta: float) -> void:
 func flip() -> void:
 	$PointLight2D.scale.x *= -1
 	$PointLight2D.scale.y *= -1
-	$PointLight2D.position.x *= -1
-	if $PointLight2D.scale.x == 1:
-		$PointLight2D.position = flippedPos
-	elif $PointLight2D.scale.x == -1:
-		$PointLight2D.position = initialPos	
+	#$PointLight2D.position.x *= -1
+	#if $PointLight2D.scale.x == 1:
+		#$PointLight2D.position = flippedPos
+	#elif $PointLight2D.scale.x == -1:
+		#$PointLight2D.position = initialPos	
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

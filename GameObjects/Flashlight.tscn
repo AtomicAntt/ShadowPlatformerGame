@@ -8,69 +8,54 @@ script = ExtResource("1_8r5hv")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture_filter = 2
-position = Vector2(-63, 0)
 rotation = 1.5708
 energy = 0.9
 shadow_enabled = true
 texture = ExtResource("1_2ms8w")
+offset = Vector2(0, 65)
 texture_scale = 0.25
 
 [node name="RayCast2D" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(0.000459671, 128)
 
 [node name="RayCast2D2" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(-49.7251, 125)
 
 [node name="RayCast2D3" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(48.7315, 125)
 
 [node name="RayCast2D4" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(18.8961, 126)
 
 [node name="RayCast2D5" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(33.8138, 127)
 
 [node name="RayCast2D6" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(-15.9117, 126)
 
 [node name="RayCast2D7" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(-30.8294, 126)
 
 [node name="RayCast2D8" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(9.94556, 126)
 
 [node name="RayCast2D9" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(-41.769, 126)
 
 [node name="RayCast2D10" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(-7.95564, 125)
 
 [node name="RayCast2D11" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(-23.8678, 125)
 
 [node name="RayCast2D12" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(-35.8019, 125)
 
 [node name="RayCast2D13" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(25.8577, 125)
 
 [node name="RayCast2D14" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(40.7754, 123)
 
 [node name="RayCast2D15" type="RayCast2D" parent="PointLight2D"]
-position = Vector2(-0.99473, -63)
 target_position = Vector2(-44.7525, 124)

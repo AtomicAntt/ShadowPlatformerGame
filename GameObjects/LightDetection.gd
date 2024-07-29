@@ -1,7 +1,7 @@
 extends PointLight2D
 
-const NUM_RAYS = 160
-const RAY_LENGTH = 200
+@export var NUM_RAYS = 160
+@export var RAY_LENGTH = 200
 @export var DEGREES: float = 360
 
 var raycasts = []
