@@ -31,8 +31,8 @@ func load_next_level() -> void:
 	load_level("Level"+str(current_level))
 
 func reload_level() -> void:
-	load_level("Level"+str(current_level))
 	$Main2D/CanvasLayer/GameOver.visible = false
+	load_level("Level"+str(current_level))
 
 func _on_start_pressed():
 	load_level("level0")
@@ -41,7 +41,7 @@ func _on_restart_pressed():
 	reload_level()
 	
 func _on_quit_to_main_menu_pressed():
-	unload_level()
 	$Main2D/CanvasLayer/GameOver.visible = false
 	$MainMenu.visible = true
+	unload_level()
 	
