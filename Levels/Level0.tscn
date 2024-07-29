@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjm5w7wcwx88n" path="res://GameObjects/Player.tscn" id="2_qtb4c"]
 [ext_resource type="Texture2D" uid="uid://mbhg1kkrp4d" path="res://GameAssets/TileMap/labTileset.png" id="3_wx7ou"]
 [ext_resource type="PackedScene" uid="uid://uuy3ruaxplwy" path="res://GameObjects/light.tscn" id="4_247hf"]
-[ext_resource type="Texture2D" uid="uid://blgb8svu6ofhi" path="res://GameAssets/Guard/robo sideview2.png" id="8_843dl"]
+[ext_resource type="PackedScene" uid="uid://cm2en4q08r3ci" path="res://GameObjects/Guard.tscn" id="9_te40g"]
 [ext_resource type="PackedScene" uid="uid://bgihg28oggtje" path="res://GameObjects/MovingPlatform.tscn" id="9_wjuer"]
 [ext_resource type="PackedScene" uid="uid://pjtjkrhfymnj" path="res://GameObjects/Flashlight.tscn" id="9_wmcxu"]
 [ext_resource type="PackedScene" uid="uid://c8o3c7g3sbs2r" path="res://GameObjects/Door.tscn" id="10_bsjf5"]
@@ -206,10 +206,6 @@ position = Vector2(14, -113)
 [node name="LightSwitch" parent="Light" index="1"]
 position = Vector2(-72, 0)
 
-[node name="RoboSideview2" type="Sprite2D" parent="."]
-position = Vector2(-139, 2)
-texture = ExtResource("8_843dl")
-
 [node name="MovingPlatform" parent="." instance=ExtResource("9_wjuer")]
 position = Vector2(52, -80)
 
@@ -222,5 +218,10 @@ position = Vector2(168, 16)
 [node name="Flashlight" parent="." instance=ExtResource("9_wmcxu")]
 position = Vector2(-63, -35)
 
+[node name="Guard" parent="." instance=ExtResource("9_te40g")]
+position = Vector2(75, 5)
+
 [editable path="Light"]
 [editable path="MovingPlatform"]
+[editable path="Guard"]
+[editable path="Guard/Flashlight"]

@@ -10,7 +10,6 @@ script = ExtResource("1_8r5hv")
 texture_filter = 2
 position = Vector2(-63, 0)
 rotation = 1.5708
-scale = Vector2(1.00552, 1)
 energy = 0.9
 shadow_enabled = true
 texture = ExtResource("1_2ms8w")

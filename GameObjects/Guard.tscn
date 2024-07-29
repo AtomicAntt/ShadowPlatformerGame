@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm2en4q08r3ci"]
+
+[ext_resource type="Script" path="res://GameObjects/Guard.gd" id="1_fr84h"]
+[ext_resource type="Texture2D" uid="uid://blgb8svu6ofhi" path="res://GameAssets/Guard/robo sideview2.png" id="2_t78hx"]
+[ext_resource type="PackedScene" uid="uid://pjtjkrhfymnj" path="res://GameObjects/Flashlight.tscn" id="3_ovw4v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwaut"]
+size = Vector2(11, 15)
+
+[node name="Guard" type="CharacterBody2D"]
+script = ExtResource("1_fr84h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 0.5)
+shape = SubResource("RectangleShape2D_uwaut")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_t78hx")
+
+[node name="GroundCheck" type="RayCast2D" parent="."]
+position = Vector2(2, 8)
+target_position = Vector2(0, 18)
+
+[node name="Flashlight" parent="." instance=ExtResource("3_ovw4v")]
+position = Vector2(9, 1)
+
+[node name="PointLight2D" parent="Flashlight" index="0"]
+position = Vector2(61, 0)
+scale = Vector2(-1, -1)
+
+[editable path="Flashlight"]
