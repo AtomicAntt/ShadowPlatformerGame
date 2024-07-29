@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://drflwskxvv7pp"]
+[gd_scene load_steps=14 format=3 uid="uid://drflwskxvv7pp"]
 
 [ext_resource type="Script" path="res://MainScene/main.gd" id="1_u7jia"]
 [ext_resource type="Texture2D" uid="uid://w18ykg2xvhbe" path="res://GameAssets/UserInterface/MainMenu/Buttons/StartGame Animated1.png" id="2_ft7cr"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://w75q2vtcj1kf" path="res://GameAssets/UserInterface/MainMenu/Buttons/Restart Animated1.png" id="10_q2x0t"]
 [ext_resource type="Texture2D" uid="uid://cki562nejhhue" path="res://GameAssets/UserInterface/MainMenu/Buttons/Restart Animated3.png" id="11_wrwmw"]
 [ext_resource type="Texture2D" uid="uid://h2u75tmsf5gi" path="res://GameAssets/UserInterface/MainMenu/Buttons/Restart Animated2.png" id="12_x8cmi"]
+[ext_resource type="Texture2D" uid="uid://bahupuxydkqbe" path="res://GameAssets/UserInterface/Dialogue/9slice dialogue.png" id="13_sc6w6"]
 
 [node name="MainScene" type="Control" groups=["main"]]
 layout_mode = 3
@@ -152,6 +153,13 @@ texture_pressed = ExtResource("6_8vjuy")
 texture_hover = ExtResource("7_35tcy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Main2D/CanvasLayer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Main2D/CanvasLayer"]
+offset_left = 191.0
+offset_top = 127.0
+offset_right = 231.0
+offset_bottom = 167.0
+texture = ExtResource("13_sc6w6")
 
 [connection signal="pressed" from="MainMenu/NinePatchRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main2D/CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
