@@ -27,7 +27,8 @@ func load_level(level_name : String) -> void:
 		main_2d.add_child(level_instance)
 
 func load_next_level() -> void:
-	load_level("Level"+str(current_level+1))
+	current_level += 1
+	load_level("Level"+str(current_level))
 
 func reload_level() -> void:
 	load_level("Level"+str(current_level))

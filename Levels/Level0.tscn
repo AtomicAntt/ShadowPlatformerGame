@@ -232,7 +232,7 @@ position = Vector2(52, -80)
 position = Vector2(90, 0)
 
 [node name="Door" parent="." instance=ExtResource("10_bsjf5")]
-position = Vector2(165, 2)
+position = Vector2(168, 16)
 
 [editable path="Light"]
 [editable path="MovingPlatform"]
