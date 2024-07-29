@@ -1,14 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://oa2s1vlitgul"]
+[gd_scene load_steps=15 format=3 uid="uid://oa2s1vlitgul"]
 
 [ext_resource type="Texture2D" uid="uid://chyam4pwu36mo" path="res://GameAssets/TileMap/PrototypeTile.png" id="1_moqy2"]
 [ext_resource type="Texture2D" uid="uid://ciuduf3u7bsko" path="res://GameAssets/TileMap/Prototype Background.png" id="2_qha1v"]
 [ext_resource type="PackedScene" uid="uid://cjm5w7wcwx88n" path="res://GameObjects/Player.tscn" id="2_qtb4c"]
 [ext_resource type="Texture2D" uid="uid://mbhg1kkrp4d" path="res://GameAssets/TileMap/labTileset.png" id="3_wx7ou"]
 [ext_resource type="PackedScene" uid="uid://uuy3ruaxplwy" path="res://GameObjects/light.tscn" id="4_247hf"]
-[ext_resource type="Texture2D" uid="uid://7jmmocrooily" path="res://GameAssets/Lighting/spotlight.jpg" id="5_iabsv"]
-[ext_resource type="Script" path="res://GameObjects/LightDetection.gd" id="6_q5ktl"]
 [ext_resource type="Texture2D" uid="uid://blgb8svu6ofhi" path="res://GameAssets/Guard/robo sideview2.png" id="8_843dl"]
 [ext_resource type="PackedScene" uid="uid://bgihg28oggtje" path="res://GameObjects/MovingPlatform.tscn" id="9_wjuer"]
+[ext_resource type="PackedScene" uid="uid://pjtjkrhfymnj" path="res://GameObjects/Flashlight.tscn" id="9_wmcxu"]
 [ext_resource type="PackedScene" uid="uid://c8o3c7g3sbs2r" path="res://GameObjects/Door.tscn" id="10_bsjf5"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7g436"]
@@ -207,20 +206,6 @@ position = Vector2(14, -113)
 [node name="LightSwitch" parent="Light" index="1"]
 position = Vector2(-72, 0)
 
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-texture_filter = 2
-position = Vector2(129, 73.3535)
-rotation = 1.5708
-scale = Vector2(1.00552, 1)
-energy = 0.9
-shadow_enabled = true
-texture = ExtResource("5_iabsv")
-texture_scale = 0.25
-script = ExtResource("6_q5ktl")
-DEGREES = 90.0
-
-[node name="RayCast2D" type="RayCast2D" parent="PointLight2D2"]
-
 [node name="RoboSideview2" type="Sprite2D" parent="."]
 position = Vector2(-139, 2)
 texture = ExtResource("8_843dl")
@@ -233,6 +218,9 @@ position = Vector2(90, 0)
 
 [node name="Door" parent="." instance=ExtResource("10_bsjf5")]
 position = Vector2(168, 16)
+
+[node name="Flashlight" parent="." instance=ExtResource("9_wmcxu")]
+position = Vector2(-63, -35)
 
 [editable path="Light"]
 [editable path="MovingPlatform"]
