@@ -1,21 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://oa2s1vlitgul"]
+[gd_scene load_steps=15 format=3 uid="uid://bty6s4q1b0e3p"]
 
-[ext_resource type="Texture2D" uid="uid://chyam4pwu36mo" path="res://GameAssets/TileMap/PrototypeTile.png" id="1_moqy2"]
-[ext_resource type="Texture2D" uid="uid://ciuduf3u7bsko" path="res://GameAssets/TileMap/Prototype Background.png" id="2_qha1v"]
-[ext_resource type="PackedScene" uid="uid://cjm5w7wcwx88n" path="res://GameObjects/Player.tscn" id="2_qtb4c"]
-[ext_resource type="Texture2D" uid="uid://mbhg1kkrp4d" path="res://GameAssets/TileMap/labTileset.png" id="3_wx7ou"]
-[ext_resource type="PackedScene" uid="uid://uuy3ruaxplwy" path="res://GameObjects/light.tscn" id="4_247hf"]
-[ext_resource type="Texture2D" uid="uid://7jmmocrooily" path="res://GameAssets/Lighting/spotlight.jpg" id="5_iabsv"]
-[ext_resource type="Script" path="res://GameObjects/LightDetection.gd" id="6_q5ktl"]
-[ext_resource type="Texture2D" uid="uid://blgb8svu6ofhi" path="res://GameAssets/Guard/robo sideview2.png" id="8_843dl"]
-[ext_resource type="PackedScene" uid="uid://bgihg28oggtje" path="res://GameObjects/MovingPlatform.tscn" id="9_wjuer"]
-[ext_resource type="PackedScene" uid="uid://c8o3c7g3sbs2r" path="res://GameObjects/Door.tscn" id="10_bsjf5"]
+[ext_resource type="Texture2D" uid="uid://chyam4pwu36mo" path="res://GameAssets/TileMap/PrototypeTile.png" id="1_wu3uu"]
+[ext_resource type="Texture2D" uid="uid://ciuduf3u7bsko" path="res://GameAssets/TileMap/Prototype Background.png" id="2_ylk5o"]
+[ext_resource type="Texture2D" uid="uid://mbhg1kkrp4d" path="res://GameAssets/TileMap/labTileset.png" id="3_6ahva"]
+[ext_resource type="PackedScene" uid="uid://cjm5w7wcwx88n" path="res://GameObjects/Player.tscn" id="4_amywq"]
+[ext_resource type="PackedScene" uid="uid://uuy3ruaxplwy" path="res://GameObjects/light.tscn" id="5_l36te"]
+[ext_resource type="Texture2D" uid="uid://7jmmocrooily" path="res://GameAssets/Lighting/spotlight.jpg" id="6_dyjf0"]
+[ext_resource type="Script" path="res://GameObjects/LightDetection.gd" id="7_rhmni"]
+[ext_resource type="Texture2D" uid="uid://blgb8svu6ofhi" path="res://GameAssets/Guard/robo sideview2.png" id="8_55033"]
+[ext_resource type="PackedScene" uid="uid://bgihg28oggtje" path="res://GameObjects/MovingPlatform.tscn" id="9_ejg2w"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7g436"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbue4"]
-texture = ExtResource("1_moqy2")
+texture = ExtResource("1_wu3uu")
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_7g436")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -23,13 +22,13 @@ texture = ExtResource("1_moqy2")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owh1p"]
-texture = ExtResource("2_qha1v")
+texture = ExtResource("2_ylk5o")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dy344"]
-texture = ExtResource("3_wx7ou")
+texture = ExtResource("3_6ahva")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -189,7 +188,7 @@ layer_0/tile_data = PackedInt32Array(-524299, 1, 0, -458763, 1, 0, -393227, 1, 0
 layer_1/name = "Floor"
 layer_1/tile_data = PackedInt32Array(65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65548, 0, 0, 65536, 0, 0, 131071, 0, 0, 131070, 0, 0, 131069, 0, 0, 131068, 0, 0, 131067, 0, 0, 131066, 0, 0, 131065, 0, 0, 131064, 0, 0, 131063, 0, 0, 131062, 0, 0, 131061, 0, 0, -196601, 0, 0, -196600, 0, 0, -196599, 0, 0, -196598, 0, 0, -196597, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_qtb4c")]
+[node name="Player" parent="." instance=ExtResource("4_amywq")]
 position = Vector2(-105, 15)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
@@ -199,7 +198,7 @@ energy = 0.8
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
 
-[node name="Light" parent="." instance=ExtResource("4_247hf")]
+[node name="Light" parent="." instance=ExtResource("5_l36te")]
 
 [node name="PointLight2D" parent="Light" index="0"]
 position = Vector2(14, -113)
@@ -214,25 +213,22 @@ rotation = 1.5708
 scale = Vector2(1.00552, 1)
 energy = 0.9
 shadow_enabled = true
-texture = ExtResource("5_iabsv")
+texture = ExtResource("6_dyjf0")
 texture_scale = 0.25
-script = ExtResource("6_q5ktl")
+script = ExtResource("7_rhmni")
 DEGREES = 90.0
 
 [node name="RayCast2D" type="RayCast2D" parent="PointLight2D2"]
 
 [node name="RoboSideview2" type="Sprite2D" parent="."]
 position = Vector2(-139, 2)
-texture = ExtResource("8_843dl")
+texture = ExtResource("8_55033")
 
-[node name="MovingPlatform" parent="." instance=ExtResource("9_wjuer")]
-position = Vector2(52, -80)
+[node name="MovingPlatform" parent="." instance=ExtResource("9_ejg2w")]
+position = Vector2(-154, -94)
 
 [node name="Marker2D" parent="MovingPlatform" index="1"]
 position = Vector2(90, 0)
-
-[node name="Door" parent="." instance=ExtResource("10_bsjf5")]
-position = Vector2(165, 2)
 
 [editable path="Light"]
 [editable path="MovingPlatform"]
