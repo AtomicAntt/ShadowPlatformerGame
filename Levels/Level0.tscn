@@ -598,13 +598,13 @@ energy = 0.8
 color = Color(0, 0, 0, 1)
 
 [node name="Light" parent="." instance=ExtResource("4_247hf")]
-position = Vector2(-38, -52)
+position = Vector2(-38, -53)
 
 [node name="PointLight2D" parent="Light" index="0"]
 position = Vector2(221, -9)
 
 [node name="LightSwitch" parent="Light" index="1"]
-position = Vector2(67, 48)
+position = Vector2(54, 48)
 
 [node name="CeilingLightOffV2" type="Sprite2D" parent="."]
 position = Vector2(-105, -79)
