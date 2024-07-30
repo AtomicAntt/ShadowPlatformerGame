@@ -25,6 +25,10 @@ func load_level(level_name : String) -> void:
 	if level_resource:
 		level_instance = level_resource.instantiate()
 		main_2d.add_child(level_instance)
+		
+	match current_level:
+		0: 
+			$Main2D/CanvasLayer/Dialogue.start_level_0_text()
 
 func load_next_level() -> void:
 	current_level += 1

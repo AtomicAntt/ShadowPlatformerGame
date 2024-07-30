@@ -157,13 +157,15 @@ texture_normal = ExtResource("5_4lp8n")
 texture_pressed = ExtResource("6_8vjuy")
 texture_hover = ExtResource("7_35tcy")
 
-[node name="Dialogue" type="Control" parent="Main2D/CanvasLayer"]
+[node name="Dialogue" type="Control" parent="Main2D/CanvasLayer" groups=["Dialogue"]]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("13_4umh3")
 
 [node name="DialogueBox" type="NinePatchRect" parent="Main2D/CanvasLayer/Dialogue"]
@@ -210,8 +212,8 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -239.0
-offset_top = -68.0
-offset_right = -182.0
+offset_top = -71.0
+offset_right = -93.0
 offset_bottom = -51.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -229,16 +231,18 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 6.0
-offset_top = 4.0
+offset_top = 2.0
 offset_right = -5.0
-offset_bottom = -4.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_q65mo")
 text = "Name"
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="DialogueBackground" type="ColorRect" parent="Main2D/CanvasLayer/Dialogue"]
+modulate = Color(1, 1, 1, 0.2)
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -246,7 +250,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.270588)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="MainMenu/NinePatchRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main2D/CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
