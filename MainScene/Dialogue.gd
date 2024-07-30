@@ -47,6 +47,21 @@ func start_level_0_text():
 	
 	visible = false
 
+func start_level_1_text():
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.disable_movement()
+	
+	write_text("Player", "Okay, made it to Room 13A, and I made sure it's the right room this time!")
+	await ConfirmDialogue
+	
+	write_text("Player", "Just have to avoid the guard ahead, and turn off all of these lights so I don't melt.")
+	await ConfirmDialogue
+	
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.enable_movement()
+	
+	visible = false
+
 func start_introduction_cutscene():
 	for player in get_tree().get_nodes_in_group("Player"):
 		player.disable_movement()
@@ -112,6 +127,46 @@ func start_introduction_cutscene():
 	visible = false
 
 func cause_dialogue(id: int) -> void:
-	pass
+	match id:
+		0:
+			for player in get_tree().get_nodes_in_group("Player"):
+				player.disable_movement()
+			
+			write_text("Player", "Cool, this looks like the cure that computer taked about, I should drink up and get back to work!")
+			await ConfirmDialogue
+			
+			$DialogueBackground.modulate.a = 1
+			write_text("Player", "[You drink the health potion]")
+			await ConfirmDialogue
+			
+			for objective in get_tree().get_nodes_in_group("Objective"):
+				objective.queue_free()
+			
+			$DialogueBackground.modulate.a = 0.2
+			for talking_computer in get_tree().get_nodes_in_group("TalkingComputer"):
+				talking_computer.play("active")
+			write_text("Talking Computer", "Feel any better now?")
+			await ConfirmDialogue
+			
+			write_text("Player", "You're here too? Well, I guess it healed up the bruise I got earlier when those potions fell on me and I fell.")
+			await ConfirmDialogue
+			
+			write_text("Talking Computer", "I guess a regular health potion these guys made wouldn't do the trick. I think storage room 5B should have just the thing, it's an all-cure potion that can cure all diseases!")
+			await ConfirmDialogue
+			
+			write_text("Player", "Okay, I guess I better leave this room and get to that all-cure potion asap!")
+			await ConfirmDialogue
+			
+			for player in get_tree().get_nodes_in_group("Player"):
+				player.enable_movement()
+	
+			for door in get_tree().get_nodes_in_group("Door"):
+				door.unlock()
+			
+			for instructions in get_tree().get_nodes_in_group("Instructions"):
+				instructions.visible = true
+	
+			visible = false
+			
 
 

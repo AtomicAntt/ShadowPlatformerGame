@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bty6s4q1b0e3p"]
+[gd_scene load_steps=23 format=3 uid="uid://bty6s4q1b0e3p"]
 
 [ext_resource type="Texture2D" uid="uid://chyam4pwu36mo" path="res://GameAssets/TileMap/PrototypeTile.png" id="1_wu3uu"]
 [ext_resource type="Texture2D" uid="uid://ciuduf3u7bsko" path="res://GameAssets/TileMap/Prototype Background.png" id="2_ylk5o"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://blfx3ps2kj8gm" path="res://GameAssets/TileMap/Shelf.png" id="5_niamm"]
 [ext_resource type="PackedScene" uid="uid://cm2en4q08r3ci" path="res://GameObjects/Guard.tscn" id="6_8bpe2"]
 [ext_resource type="PackedScene" uid="uid://c8o3c7g3sbs2r" path="res://GameObjects/Door.tscn" id="7_0p1da"]
+[ext_resource type="Texture2D" uid="uid://e7ts73ehfpha" path="res://GameAssets/Interactables/talkingComputer1.png" id="10_kk6sm"]
+[ext_resource type="Texture2D" uid="uid://5nqgryicscpy" path="res://GameAssets/Interactables/talkingComputer2.png" id="11_qhxw0"]
+[ext_resource type="PackedScene" uid="uid://dsbch5oqy2vrh" path="res://GameObjects/Objective.tscn" id="12_xf3d4"]
+[ext_resource type="FontFile" uid="uid://envxbcwayc1r" path="res://GameAssets/Fonts/m5x7.ttf" id="13_h6qb3"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7g436"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -210,6 +214,28 @@ sources/2 = SubResource("TileSetAtlasSource_dy344")
 sources/3 = SubResource("TileSetAtlasSource_iwxoe")
 sources/4 = SubResource("TileSetAtlasSource_cwbtp")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wlcs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_kk6sm")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_qhxw0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Theme" id="Theme_qbpgs"]
+default_font = ExtResource("13_h6qb3")
+
 [node name="Level1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -247,11 +273,36 @@ position = Vector2(-34, 7)
 [node name="Door" parent="." instance=ExtResource("7_0p1da")]
 position = Vector2(-137, 16)
 
+[node name="Label" parent="Door" index="2"]
+offset_left = -20.0
+offset_right = 87.0
+
 [node name="Light2" parent="." instance=ExtResource("5_l36te")]
 position = Vector2(215, -31)
 
 [node name="PointLight2D" parent="Light2" index="0"]
 position = Vector2(187, -15)
 
+[node name="ComputerAI" type="Node2D" parent="."]
+position = Vector2(392, 0)
+
+[node name="TalkingComputer2" type="AnimatedSprite2D" parent="ComputerAI" groups=["TalkingComputer"]]
+sprite_frames = SubResource("SpriteFrames_0wlcs")
+flip_h = true
+
+[node name="Objective" parent="." instance=ExtResource("12_xf3d4")]
+position = Vector2(360, 7)
+
+[node name="Instructions" type="Label" parent="." groups=["Instructions"]]
+visible = false
+offset_left = 72.0
+offset_top = -69.0
+offset_right = 270.0
+offset_bottom = -40.0
+theme = SubResource("Theme_qbpgs")
+text = "Sneak back to the door you entered from!"
+autowrap_mode = 3
+
 [editable path="Light"]
+[editable path="Door"]
 [editable path="Light2"]

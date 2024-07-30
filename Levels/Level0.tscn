@@ -613,6 +613,12 @@ texture = ExtResource("7_48srl")
 [node name="Door" parent="." instance=ExtResource("10_bsjf5")]
 position = Vector2(216, 16)
 
+[node name="Label" parent="Door" index="2"]
+offset_left = -87.0
+offset_top = -51.0
+offset_right = 20.0
+offset_bottom = -38.0
+
 [node name="ComputerAI" type="Node2D" parent="."]
 position = Vector2(-121, 0)
 
@@ -648,3 +654,4 @@ position = Vector2(-104, 6)
 
 [editable path="Player"]
 [editable path="Light"]
+[editable path="Door"]

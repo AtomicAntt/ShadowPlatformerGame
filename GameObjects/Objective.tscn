@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsbch5oqy2vrh"]
+
+[ext_resource type="Texture2D" uid="uid://c7kanayht7o4h" path="res://GameAssets/Interactables/HealthPotion.png" id="1_0oaia"]
+[ext_resource type="Script" path="res://GameObjects/Objective.gd" id="1_dkhef"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1xda"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0oaia")
+}],
+"loop": true,
+"name": &"HealthPotion",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6xe0"]
+
+[node name="Objective" type="Area2D" groups=["Objective"]]
+script = ExtResource("1_dkhef")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m1xda")
+animation = &"HealthPotion"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t6xe0")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

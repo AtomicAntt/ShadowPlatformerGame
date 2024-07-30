@@ -9,11 +9,13 @@ func _input(event):
 		main.load_next_level()
 
 func _on_area_entered(area):
-	if area.is_in_group("PlayerHitbox"):
+	if area.is_in_group("PlayerHitbox") and canOpen:
+		$Label.visible = true
 		canEnter = true
 
 func _on_area_exited(area):
 	if area.is_in_group("PlayerHitbox"):
+		$Label.visible = false
 		canEnter = false
 
 func unlock() -> void:

@@ -38,6 +38,8 @@ func load_level(level_name : String) -> void:
 	match current_level:
 		0: 
 			$Main2D/CanvasLayer/Dialogue.start_level_0_text()
+		1:
+			$Main2D/CanvasLayer/Dialogue.start_level_1_text()
 
 func load_next_level() -> void:
 	current_level += 1
