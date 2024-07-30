@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://drflwskxvv7pp"]
+[gd_scene load_steps=18 format=3 uid="uid://drflwskxvv7pp"]
 
 [ext_resource type="Script" path="res://MainScene/main.gd" id="1_u7jia"]
 [ext_resource type="Texture2D" uid="uid://w18ykg2xvhbe" path="res://GameAssets/UserInterface/MainMenu/Buttons/StartGame Animated1.png" id="2_ft7cr"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://MainScene/Dialogue.gd" id="13_4umh3"]
 [ext_resource type="Texture2D" uid="uid://bahupuxydkqbe" path="res://GameAssets/UserInterface/Dialogue/9slice dialogue.png" id="13_sc6w6"]
 [ext_resource type="FontFile" uid="uid://envxbcwayc1r" path="res://GameAssets/Fonts/m5x7.ttf" id="14_6apro"]
+[ext_resource type="AudioStream" uid="uid://c30tnxc8soab7" path="res://GameAssets/Music/Convert.wav" id="16_rqxqe"]
 
 [sub_resource type="Theme" id="Theme_q65mo"]
 default_font = ExtResource("14_6apro")
@@ -252,6 +253,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_rqxqe")
+autoplay = true
 
 [connection signal="pressed" from="MainMenu/NinePatchRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main2D/CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
