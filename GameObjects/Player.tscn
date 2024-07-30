@@ -104,7 +104,7 @@ z_index = 1
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_in8ix")
 animation = &"Idle"
-frame_progress = 0.309116
+frame_progress = 0.181084
 
 [node name="PlayerHitbox" type="Area2D" parent="." groups=["PlayerHitbox"]]
 

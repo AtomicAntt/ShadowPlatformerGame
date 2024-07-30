@@ -25,8 +25,9 @@ func _physics_process(delta):
 			emit_signal("ConfirmDialogue")
 
 func start_level_0_text():
-	var player = get_tree().get_nodes_in_group("Player")[0]
-	player.disable_movement()
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.disable_movement()
+	
 	$DialogueBackground.modulate.a = 1
 	
 	write_text("Max, Head Researcher", "Hey man, can you get me some Dihydrogen Monoxide from storage room 7A?")
@@ -39,13 +40,17 @@ func start_level_0_text():
 	write_text("Player", "Okay, it's my first task in this new job, I just need to look at the labels of each flask and give Max the right one!")
 	await ConfirmDialogue
 	
-	player.enable_movement()
+	
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.enable_movement()
+	
 	
 	visible = false
 
 func start_introduction_cutscene():
-	var player = get_tree().get_nodes_in_group("Player")[0]
-	player.disable_movement()
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.disable_movement()
+		
 	
 	write_text("Player", "Alright, there are a lot of chemicals I don't understand here, but surely one of these is the one he wants.")
 	await ConfirmDialogue
@@ -59,7 +64,8 @@ func start_introduction_cutscene():
 	$DialogueBackground.modulate.a = 1
 	write_text("Player", "[You accidentally knock over a bunch of potions on top of you]")
 	get_tree().get_nodes_in_group("Highlight")[0].queue_free() # Rids of the potions that were highlighted
-	player.transform_to_shadow()
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.transform_to_shadow()
 	await ConfirmDialogue
 	
 	$DialogueBackground.modulate.a = 0.2
@@ -97,7 +103,8 @@ func start_introduction_cutscene():
 	write_text("Player", "Thanks, hopefully I can get back to Max as soon as possible")
 	
 	get_tree().get_nodes_in_group("Instructions")[0].visible = true
-	player.enable_movement()
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.enable_movement()
 	
 	visible = false
 

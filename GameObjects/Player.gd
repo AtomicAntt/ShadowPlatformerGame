@@ -49,6 +49,11 @@ func _physics_process(delta: float):
 
 func disable_movement() -> void:
 	state = States.DISABLED
+	# Added this because player was stuck on walk animation
+	if entityState == EntityState.HUMAN:
+		$AnimatedSprite2D.play("HumanIdle")
+	else:
+		$AnimatedSprite2D.play("Idle")
 
 func enable_movement() -> void:
 	state = States.AIR
