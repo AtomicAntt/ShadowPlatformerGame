@@ -37,7 +37,7 @@ func start_level_0_text():
 	await ConfirmDialogue
 	
 	$DialogueBackground.modulate.a = 0.2
-	write_text("Player", "Okay, it's my first task in this new job, I just need to look at the labels of each flask and give Max the right one!")
+	write_text("Player", "Okay, it's my first task in this new job. I just need to look at the labels of each flask and give Max the right one!")
 	await ConfirmDialogue
 	
 	
@@ -69,14 +69,14 @@ func start_introduction_cutscene():
 	await ConfirmDialogue
 	
 	$DialogueBackground.modulate.a = 0.2
-	write_text("Player", "Ugh, I feel drowsy, and I can't feel anything at all..")
+	write_text("Player", "Ugh, I feel drowsy, and I can't feel my legs..")
 	await ConfirmDialogue
 	
 	get_tree().get_nodes_in_group("TalkingComputer")[0].play("active") # Talking Computer is an Animated Sprite
 	write_text("Talking Computer", "Hey, you alright?")
 	await ConfirmDialogue
 	
-	write_text("Player", "Huh? Who are you, am I just seeing things now?")
+	write_text("Player", "Huh? Who are you? Am I just seeing things now?")
 	await ConfirmDialogue
 	
 	write_text("Talking Computer", "I am a person who turned into a computer, just like how you turned into a shadow.")
