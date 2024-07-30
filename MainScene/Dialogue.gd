@@ -132,7 +132,7 @@ func cause_dialogue(id: int) -> void:
 			for player in get_tree().get_nodes_in_group("Player"):
 				player.disable_movement()
 			
-			write_text("Player", "Cool, this looks like the cure that computer taked about, I should drink up and get back to work!")
+			write_text("Player", "Cool, this looks like the cure that computer taked about! I should drink up and get back to work.")
 			await ConfirmDialogue
 			
 			$DialogueBackground.modulate.a = 1
