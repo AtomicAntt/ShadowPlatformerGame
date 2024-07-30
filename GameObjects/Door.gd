@@ -1,5 +1,6 @@
 extends Area2D
 
+var canOpen: bool = false
 var canEnter: bool = false
 
 func _input(event):

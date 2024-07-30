@@ -27,5 +27,6 @@ func check_player(delta: float) -> void:
 				return
 			
 			if collider.is_in_group("Player"):
-				collider.hurt(delta * 100)
-				return
+				if not collider.is_human():
+					collider.hurt(delta * 100)
+					return

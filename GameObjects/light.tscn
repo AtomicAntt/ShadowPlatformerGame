@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://uuy3ruaxplwy"]
+[gd_scene load_steps=9 format=3 uid="uid://uuy3ruaxplwy"]
 
 [ext_resource type="Script" path="res://GameObjects/Light.gd" id="1_3f7l6"]
 [ext_resource type="Texture2D" uid="uid://csllib2c1x0wg" path="res://GameAssets/Lighting/light.png" id="2_2cwsh"]
 [ext_resource type="Script" path="res://GameObjects/LightDetection.gd" id="3_pcb62"]
 [ext_resource type="Texture2D" uid="uid://dqo2cjpx6s0br" path="res://GameAssets/Interactables/Light Switch.png" id="4_upbmp"]
 [ext_resource type="FontFile" uid="uid://envxbcwayc1r" path="res://GameAssets/Fonts/m5x7.ttf" id="5_ioe0u"]
+[ext_resource type="Texture2D" uid="uid://c2gv17dxh0yjk" path="res://GameAssets/Interactables/CeilingLightOnV2.png" id="6_22yy1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltwyl"]
 size = Vector2(38, 39)
@@ -20,6 +21,10 @@ position = Vector2(25, -112)
 shadow_enabled = true
 texture = ExtResource("2_2cwsh")
 script = ExtResource("3_pcb62")
+
+[node name="CeilingLightOnV2" type="Sprite2D" parent="PointLight2D"]
+position = Vector2(0, -1)
+texture = ExtResource("6_22yy1")
 
 [node name="LightSwitch" type="Area2D" parent="."]
 

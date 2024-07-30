@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://drflwskxvv7pp"]
+[gd_scene load_steps=17 format=3 uid="uid://drflwskxvv7pp"]
 
 [ext_resource type="Script" path="res://MainScene/main.gd" id="1_u7jia"]
 [ext_resource type="Texture2D" uid="uid://w18ykg2xvhbe" path="res://GameAssets/UserInterface/MainMenu/Buttons/StartGame Animated1.png" id="2_ft7cr"]
@@ -12,7 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://w75q2vtcj1kf" path="res://GameAssets/UserInterface/MainMenu/Buttons/Restart Animated1.png" id="10_q2x0t"]
 [ext_resource type="Texture2D" uid="uid://cki562nejhhue" path="res://GameAssets/UserInterface/MainMenu/Buttons/Restart Animated3.png" id="11_wrwmw"]
 [ext_resource type="Texture2D" uid="uid://h2u75tmsf5gi" path="res://GameAssets/UserInterface/MainMenu/Buttons/Restart Animated2.png" id="12_x8cmi"]
+[ext_resource type="Script" path="res://MainScene/Dialogue.gd" id="13_4umh3"]
 [ext_resource type="Texture2D" uid="uid://bahupuxydkqbe" path="res://GameAssets/UserInterface/Dialogue/9slice dialogue.png" id="13_sc6w6"]
+[ext_resource type="FontFile" uid="uid://envxbcwayc1r" path="res://GameAssets/Fonts/m5x7.ttf" id="14_6apro"]
+
+[sub_resource type="Theme" id="Theme_q65mo"]
+default_font = ExtResource("14_6apro")
 
 [node name="MainScene" type="Control" groups=["main"]]
 layout_mode = 3
@@ -152,14 +157,96 @@ texture_normal = ExtResource("5_4lp8n")
 texture_pressed = ExtResource("6_8vjuy")
 texture_hover = ExtResource("7_35tcy")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Main2D/CanvasLayer"]
+[node name="Dialogue" type="Control" parent="Main2D/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_4umh3")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Main2D/CanvasLayer"]
-offset_left = 191.0
-offset_top = 127.0
-offset_right = 231.0
-offset_bottom = 167.0
+[node name="DialogueBox" type="NinePatchRect" parent="Main2D/CanvasLayer/Dialogue"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -239.0
+offset_top = -76.0
+offset_right = 239.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("13_sc6w6")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Label" type="Label" parent="Main2D/CanvasLayer/Dialogue/DialogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q65mo")
+text = "Hey, my name is "
+autowrap_mode = 3
+
+[node name="NameBox" type="NinePatchRect" parent="Main2D/CanvasLayer/Dialogue/DialogueBox"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -239.0
+offset_top = -68.0
+offset_right = -182.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("13_sc6w6")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Label" type="Label" parent="Main2D/CanvasLayer/Dialogue/DialogueBox/NameBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q65mo")
+text = "Name"
+autowrap_mode = 3
+
+[node name="DialogueBackground" type="ColorRect" parent="Main2D/CanvasLayer/Dialogue"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.270588)
 
 [connection signal="pressed" from="MainMenu/NinePatchRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Main2D/CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

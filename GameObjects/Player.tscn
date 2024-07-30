@@ -1,21 +1,87 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjm5w7wcwx88n"]
+[gd_scene load_steps=17 format=3 uid="uid://cjm5w7wcwx88n"]
 
 [ext_resource type="Script" path="res://GameObjects/Player.gd" id="1_dmfpa"]
-[ext_resource type="Texture2D" uid="uid://bl7x3d28hbvsl" path="res://GameAssets/Player/PrototypePlayer.png" id="2_rc71a"]
+[ext_resource type="Texture2D" uid="uid://bqgdo35mygybe" path="res://GameAssets/Player/scientistWalk.png" id="2_kvngr"]
+[ext_resource type="Texture2D" uid="uid://qp4dc3pxwn7g" path="res://GameAssets/Player/PlayerWalk1.png" id="3_plpau"]
 [ext_resource type="Texture2D" uid="uid://c5i2phhbd3f8y" path="res://GameAssets/UserInterface/Health/progressFramev3.png" id="3_rjaip"]
+[ext_resource type="Texture2D" uid="uid://cpyimfmjgqgh5" path="res://GameAssets/Player/PlayerWalk2.png" id="4_48sfo"]
 [ext_resource type="Texture2D" uid="uid://bel0v8bb7f6k" path="res://GameAssets/UserInterface/Health/progressv2.png" id="4_j1jhv"]
+[ext_resource type="Texture2D" uid="uid://dbc20uddbyrbr" path="res://GameAssets/Player/PlayerWalk3.png" id="5_bfui7"]
+[ext_resource type="Texture2D" uid="uid://ctu5esm2slppc" path="res://GameAssets/Player/PlayerWalk4.png" id="6_vs755"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsln0"]
 size = Vector2(12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsa4b"]
+atlas = ExtResource("2_kvngr")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04i7p"]
+atlas = ExtResource("2_kvngr")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x640s"]
+atlas = ExtResource("2_kvngr")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_god1u"]
+atlas = ExtResource("2_kvngr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ketpi"]
+atlas = ExtResource("2_kvngr")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_in8ix"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_rc71a")
+"texture": SubResource("AtlasTexture_bsa4b")
+}],
+"loop": true,
+"name": &"HumanIdle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04i7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x640s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_god1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ketpi")
+}],
+"loop": true,
+"name": &"HumanWalk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_plpau")
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_plpau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_48sfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bfui7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vs755")
+}],
+"loop": true,
+"name": &"Walk",
 "speed": 5.0
 }]
 
@@ -38,6 +104,7 @@ z_index = 1
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_in8ix")
 animation = &"Idle"
+frame_progress = 0.754951
 
 [node name="PlayerHitbox" type="Area2D" parent="." groups=["PlayerHitbox"]]
 

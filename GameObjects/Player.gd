@@ -1,9 +1,14 @@
+class_name Player
 extends CharacterBody2D
 
-enum States {AIR, FLOOR, DEAD}
+
+enum States {AIR, FLOOR, DEAD, DISABLED}
 var state: States = States.AIR
 
-const SPEED = 200.0
+enum EntityState {HUMAN, SHADOW}
+@export var entityState: EntityState = EntityState.SHADOW
+
+@export var SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 
 const MAX_HEALTH: float = 100
@@ -39,16 +44,31 @@ func _physics_process(delta: float):
 				state = States.AIR
 		States.DEAD:
 			velocity.x = lerp(velocity.x, 0.0, 0.4)
-	
+		States.DISABLED:
+			velocity.x = lerp(velocity.x, 0.0, 0.4)
+
+func disable_movement() -> void:
+	state = States.DISABLED
+
+func enable_movement() -> void:
+	state = States.AIR
+
 func get_horizontal_movement() -> void:
+	var entity: String = ""
+	if entityState == EntityState.HUMAN:
+			entity = entity + "Human"
+	
 	if Input.is_action_pressed("right"):
 		velocity.x = lerp(velocity.x, SPEED, 0.2)
 		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play(entity+"Walk")
 	elif Input.is_action_pressed("left"):
 		velocity.x = lerp(velocity.x, -SPEED, 0.2)
 		$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.play(entity+"Walk")
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.4)
+		$AnimatedSprite2D.play(entity+"Idle")
 
 func fall(delta: float) -> void:
 	velocity.y += gravity * delta
@@ -83,3 +103,8 @@ func alter_transparency(health: float) -> void:
 	else:
 		var tween = get_tree().create_tween()
 		tween.tween_property($HealthBar, "modulate:a", 0, 0.2)
+
+func is_human() -> bool:
+	if entityState == EntityState.HUMAN:
+		return true
+	return false
