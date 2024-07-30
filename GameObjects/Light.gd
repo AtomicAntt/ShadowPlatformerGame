@@ -7,6 +7,11 @@ func _input(event):
 		$PointLight2D.enabled = !$PointLight2D.enabled
 		for raycast in $PointLight2D.raycasts:
 			raycast.enabled = $PointLight2D.enabled
+		
+		if !$PointLight2D.enabled:
+			$LightSwitch/AnimatedSprite2D.play("default")
+		else:
+			$LightSwitch/AnimatedSprite2D.play("on")
 
 func _on_light_switch_area_entered(area):
 	if area.is_in_group("PlayerHitbox"):

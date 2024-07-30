@@ -1,14 +1,34 @@
-[gd_scene load_steps=9 format=3 uid="uid://uuy3ruaxplwy"]
+[gd_scene load_steps=11 format=3 uid="uid://uuy3ruaxplwy"]
 
 [ext_resource type="Script" path="res://GameObjects/Light.gd" id="1_3f7l6"]
 [ext_resource type="Texture2D" uid="uid://csllib2c1x0wg" path="res://GameAssets/Lighting/light.png" id="2_2cwsh"]
 [ext_resource type="Script" path="res://GameObjects/LightDetection.gd" id="3_pcb62"]
-[ext_resource type="Texture2D" uid="uid://dqo2cjpx6s0br" path="res://GameAssets/Interactables/Light Switch.png" id="4_upbmp"]
 [ext_resource type="FontFile" uid="uid://envxbcwayc1r" path="res://GameAssets/Fonts/m5x7.ttf" id="5_ioe0u"]
+[ext_resource type="Texture2D" uid="uid://bvpiahhoic3sc" path="res://GameAssets/Interactables/Light Switch2.png" id="5_qkeux"]
+[ext_resource type="Texture2D" uid="uid://csyudoi8nip14" path="res://GameAssets/Interactables/Light Switch1.png" id="6_11kce"]
 [ext_resource type="Texture2D" uid="uid://c2gv17dxh0yjk" path="res://GameAssets/Interactables/CeilingLightOnV2.png" id="6_22yy1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltwyl"]
 size = Vector2(38, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5bxmq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qkeux")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_11kce")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
 
 [sub_resource type="Theme" id="Theme_1p666"]
 default_font = ExtResource("5_ioe0u")
@@ -31,8 +51,9 @@ texture = ExtResource("6_22yy1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightSwitch"]
 shape = SubResource("RectangleShape2D_ltwyl")
 
-[node name="Sprite" type="Sprite2D" parent="LightSwitch"]
-texture = ExtResource("4_upbmp")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LightSwitch"]
+sprite_frames = SubResource("SpriteFrames_5bxmq")
+animation = &"on"
 
 [node name="Label" type="Label" parent="LightSwitch"]
 visible = false
@@ -42,7 +63,7 @@ offset_top = -32.0
 offset_right = 107.0
 offset_bottom = -19.0
 theme = SubResource("Theme_1p666")
-text = "Press 'e' to turn off light"
+text = "Press 'e' to toggle lights"
 
 [connection signal="area_entered" from="LightSwitch" to="." method="_on_light_switch_area_entered"]
 [connection signal="area_exited" from="LightSwitch" to="." method="_on_light_switch_area_exited"]
