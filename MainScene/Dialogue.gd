@@ -106,6 +106,12 @@ func start_introduction_cutscene():
 	for player in get_tree().get_nodes_in_group("Player"):
 		player.enable_movement()
 	
+	for door in get_tree().get_nodes_in_group("Door"):
+		door.unlock()
+	
 	visible = false
+
+func cause_dialogue(id: int) -> void:
+	pass
 
 

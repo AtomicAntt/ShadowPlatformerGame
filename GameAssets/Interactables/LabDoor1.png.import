@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://basvjryvmnie0"
-path="res://.godot/imported/Door2.png-ab23fc06fcff49af39b472c46906dab2.ctex"
+uid="uid://cbc3vsrh711pw"
+path="res://.godot/imported/LabDoor1.png-6747ad56b952e3bfed16f2b3c2e5add4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameAssets/Interactables/Door2.png"
-dest_files=["res://.godot/imported/Door2.png-ab23fc06fcff49af39b472c46906dab2.ctex"]
+source_file="res://GameAssets/Interactables/LabDoor1.png"
+dest_files=["res://.godot/imported/LabDoor1.png-6747ad56b952e3bfed16f2b3c2e5add4.ctex"]
 
 [params]
 
