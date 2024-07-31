@@ -5,6 +5,8 @@ var tween: Tween # this guys in charge of making text visible
 
 var intro_finished: bool = false
 
+var time_started: int # when you start level 0
+
 signal ConfirmDialogue
 
 func write_text(name: String, textGiven: String) -> void:
@@ -35,6 +37,8 @@ func start_level_0_text():
 	
 	write_text("Player", "Sure thing boss. I'll get you that stuff right away.")
 	await ConfirmDialogue
+	
+	time_started = Time.get_ticks_msec() # Lol
 	
 	$DialogueBackground.modulate.a = 0.2
 	write_text("Player", "Okay, it's my first task in this new job. I just need to look at the labels of each flask and give Max the right one!")
@@ -85,6 +89,26 @@ func start_level_3_text():
 		player.enable_movement()
 	
 	visible = false
+
+func start_level_4_text():
+	
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.disable_movement()
+	
+	$DialogueBackground.modulate.a = 1
+	
+	write_text("Player", "Hey Boss, I got that Dihydrogen Monoxide for you!")
+	await ConfirmDialogue
+	
+	write_text("Max, Head Researcher", "Hm. It has been " + str("%.3f" % ((float)(Time.get_ticks_msec() - time_started)/60000.0)) + " minutes since I have asked.. Does it usually take someone " + str("%.3f" % ((float)(Time.get_ticks_msec() - time_started)/60000.0)) + " minutes to get someone some water?")
+	await ConfirmDialogue
+	
+	write_text("Max, Head Researcher", "Well it's alright, it's only your first day, don't beat yourself up about it. \n [GAME COMPLETE]")
+	await ConfirmDialogue
+	
+	$DialogueBackground.modulate.a = 0.2
+	visible = false
+	$"../../..".quit_to_main()
 
 func start_introduction_cutscene():
 	for player in get_tree().get_nodes_in_group("Player"):

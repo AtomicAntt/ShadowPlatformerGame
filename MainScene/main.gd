@@ -45,6 +45,8 @@ func load_level(level_name : String) -> void:
 			$Main2D/CanvasLayer/Dialogue.start_level_2_text()
 		3:
 			$Main2D/CanvasLayer/Dialogue.start_level_3_text()
+		4:
+			$Main2D/CanvasLayer/Dialogue.start_level_4_text()
 
 func load_next_level() -> void:
 	current_level += 1
@@ -61,6 +63,9 @@ func _on_restart_pressed():
 	reload_level()
 	
 func _on_quit_to_main_menu_pressed():
+	quit_to_main()
+
+func quit_to_main():
 	$Main2D/CanvasLayer/GameOver.visible = false
 	$MainMenu.visible = true
 	unload_level()
