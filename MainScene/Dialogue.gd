@@ -132,6 +132,7 @@ func start_introduction_cutscene():
 	await ConfirmDialogue
 	
 	$DialogueBackground.modulate.a = 1
+	$PotionBreak.play()
 	write_text("Player", "[You accidentally knock over a bunch of potions on top of you]")
 	get_tree().get_nodes_in_group("Highlight")[0].queue_free() # Rids of the potions that were highlighted
 	for player in get_tree().get_nodes_in_group("Player"):
@@ -191,6 +192,7 @@ func cause_dialogue(id: int) -> void:
 			await ConfirmDialogue
 			
 			$DialogueBackground.modulate.a = 1
+			$HealthPotion.play()
 			write_text("Player", "[You drink the health potion]")
 			await ConfirmDialogue
 			
@@ -230,6 +232,7 @@ func cause_dialogue(id: int) -> void:
 			await ConfirmDialogue
 			
 			$DialogueBackground.modulate.a = 1
+			$AllCurePotion.play()
 			write_text("Player", "[You drink the all cure potion]")
 			await ConfirmDialogue
 			
@@ -275,6 +278,7 @@ func cause_dialogue(id: int) -> void:
 				player.transform_to_human()
 			
 			$DialogueBackground.modulate.a = 1
+			$HumanPotion.play()
 			write_text("Player", "[You drink the human potion]")
 			await ConfirmDialogue
 			

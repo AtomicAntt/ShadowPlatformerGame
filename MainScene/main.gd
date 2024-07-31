@@ -36,6 +36,8 @@ func load_level(level_name : String) -> void:
 		level_instance = level_resource.instantiate()
 		main_2d.add_child(level_instance)
 	
+	$Main2D/CanvasLayer/GameOver.visible = false # second shield ??
+	
 	match current_level:
 		0: 
 			$Main2D/CanvasLayer/Dialogue.start_level_0_text()
@@ -74,3 +76,6 @@ func quit_to_main():
 
 func _on_button_mouse_entered():
 	$UIHover.play()
+
+func play_success():
+	$Success.play()

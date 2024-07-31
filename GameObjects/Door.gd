@@ -6,6 +6,7 @@ var canEnter: bool = false
 func _input(event):
 	if event.is_action_pressed("interact") and canEnter and canOpen:
 		var main = get_tree().get_nodes_in_group("main")[0]
+		main.play_success()
 		main.load_next_level()
 
 func _on_area_entered(area):

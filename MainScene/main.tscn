@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://drflwskxvv7pp"]
+[gd_scene load_steps=28 format=3 uid="uid://drflwskxvv7pp"]
 
 [ext_resource type="Script" path="res://MainScene/main.gd" id="1_u7jia"]
 [ext_resource type="Texture2D" uid="uid://w18ykg2xvhbe" path="res://GameAssets/UserInterface/MainMenu/Buttons/StartGame Animated1.png" id="2_ft7cr"]
@@ -17,12 +17,15 @@
 [ext_resource type="FontFile" uid="uid://envxbcwayc1r" path="res://GameAssets/Fonts/m5x7.ttf" id="14_6apro"]
 [ext_resource type="AudioStream" uid="uid://c30tnxc8soab7" path="res://GameAssets/Music/Convert.wav" id="16_rqxqe"]
 [ext_resource type="AudioStream" uid="uid://cvkgjas0b4qw0" path="res://GameAssets/SFX/PotionEffects/Retro PickUp 18.wav" id="16_x4i2g"]
+[ext_resource type="AudioStream" uid="uid://c74diu0hwa0tf" path="res://GameAssets/SFX/PotionEffects/Retro Magic 06.wav" id="17_6jc5y"]
 [ext_resource type="AudioStream" uid="uid://d2ha1d4e5p268" path="res://GameAssets/SFX/PotionEffects/sound (7).wav" id="17_m6xdc"]
 [ext_resource type="AudioStream" uid="uid://cynafh1gys5ik" path="res://GameAssets/SFX/Dialogue/554023__dodrio__dialogue_mumble_huuh.ogg" id="18_vu3rw"]
 [ext_resource type="AudioStream" uid="uid://bcmdvnmqc0f75" path="res://GameAssets/SFX/UI/sound (8).wav" id="19_ediub"]
 [ext_resource type="AudioStream" uid="uid://gsq1ql3pa1xq" path="res://GameAssets/SFX/Dialogue/554019__dodrio__dialogue_mumble_hah.ogg" id="19_vhe0s"]
 [ext_resource type="AudioStream" uid="uid://c8gbkg47bx2x5" path="res://GameAssets/SFX/Dialogue/sound (9).wav" id="20_lkrja"]
 [ext_resource type="AudioStream" uid="uid://ba3mwstt01iuw" path="res://GameAssets/SFX/UI/Retro Event Acute 11.wav" id="20_mm6xd"]
+[ext_resource type="AudioStream" uid="uid://xelsk3d15bd6" path="res://GameAssets/SFX/PotionEffects/407431__deezsoundztho__bottle-break.wav" id="21_xq7ai"]
+[ext_resource type="AudioStream" uid="uid://cywxrmosy5g7f" path="res://GameAssets/SFX/GoalAccomplished/632661__xkeril__you-find-a-treasure.wav" id="26_dndon"]
 
 [sub_resource type="Theme" id="Theme_q65mo"]
 default_font = ExtResource("14_6apro")
@@ -265,6 +268,7 @@ color = Color(0, 0, 0, 1)
 stream = ExtResource("16_x4i2g")
 
 [node name="AllCurePotion" type="AudioStreamPlayer" parent="Main2D/CanvasLayer/Dialogue"]
+stream = ExtResource("17_6jc5y")
 
 [node name="HumanPotion" type="AudioStreamPlayer" parent="Main2D/CanvasLayer/Dialogue"]
 stream = ExtResource("17_m6xdc")
@@ -278,6 +282,9 @@ stream = ExtResource("19_vhe0s")
 [node name="ComputerDialogue" type="AudioStreamPlayer" parent="Main2D/CanvasLayer/Dialogue"]
 stream = ExtResource("20_lkrja")
 
+[node name="PotionBreak" type="AudioStreamPlayer" parent="Main2D/CanvasLayer/Dialogue"]
+stream = ExtResource("21_xq7ai")
+
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_rqxqe")
 autoplay = true
@@ -287,6 +294,9 @@ stream = ExtResource("19_ediub")
 
 [node name="UIClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_mm6xd")
+
+[node name="Success" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_dndon")
 
 [connection signal="mouse_entered" from="MainMenu/NinePatchRect/VBoxContainer/Start" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="MainMenu/NinePatchRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
