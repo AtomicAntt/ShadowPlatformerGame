@@ -68,5 +68,6 @@ func _on_quit_to_main_menu_pressed():
 func quit_to_main():
 	$Main2D/CanvasLayer/GameOver.visible = false
 	$MainMenu.visible = true
+	current_level = 0
 	unload_level()
 	

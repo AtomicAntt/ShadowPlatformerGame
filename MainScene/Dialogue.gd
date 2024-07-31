@@ -264,20 +264,26 @@ func cause_dialogue(id: int) -> void:
 			write_text("Player", "Finally, I got my hands on the human potion, they really got it locked down.")
 			await ConfirmDialogue
 			
+			for player in get_tree().get_nodes_in_group("Player"):
+				player.transform_to_human()
+			
 			$DialogueBackground.modulate.a = 1
 			write_text("Player", "[You drink the human potion]")
 			await ConfirmDialogue
 			
 			for objective in get_tree().get_nodes_in_group("Objective"):
 				objective.queue_free()
+				
+			
 			
 			$DialogueBackground.modulate.a = 0.2
 			for talking_computer in get_tree().get_nodes_in_group("TalkingComputer"):
 				talking_computer.play("active")
+			
 			write_text("Talking Computer", "Wow, I can see it working alright")
 			await ConfirmDialogue
 			
-			write_text("Player", "I can feel now, I can see now, I think I really am all better!")
+			write_text("Player", "I can feel my arms, my legs, I think I really am all better!")
 			await ConfirmDialogue
 			
 			write_text("Talking Computer", "Yep, you can now bring whatever that guy was some of that water!")

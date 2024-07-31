@@ -117,3 +117,7 @@ func is_human() -> bool:
 func transform_to_shadow() -> void:
 	entityState = EntityState.SHADOW
 	$AnimatedSprite2D.play("Idle")
+
+func transform_to_human() -> void:
+	entityState = EntityState.HUMAN
+	$AnimatedSprite2D.play("HumanIdle")
