@@ -299,5 +299,6 @@ stream = ExtResource("26_dndon")
 [connection signal="mouse_entered" from="MainMenu/NinePatchRect/VBoxContainer/Start" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="MainMenu/NinePatchRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="mouse_entered" from="MainMenu/NinePatchRect/VBoxContainer/Quit" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="MainMenu/NinePatchRect/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Main2D/CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Main2D/CanvasLayer/GameOver/VBoxContainer/QuitToMainMenu" to="." method="_on_quit_to_main_menu_pressed"]

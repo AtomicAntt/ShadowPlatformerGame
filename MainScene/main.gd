@@ -79,3 +79,15 @@ func _on_button_mouse_entered():
 
 func play_success():
 	$Success.play()
+
+var quit_pressed = false
+func _on_quit_pressed():
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	quit_pressed = true
+	
+func _input(event):
+	if event is InputEventMouseButton:
+		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+			
+		
