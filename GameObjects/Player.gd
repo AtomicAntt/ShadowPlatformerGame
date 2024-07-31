@@ -40,6 +40,7 @@ func _physics_process(delta: float):
 		States.FLOOR:
 			get_horizontal_movement()
 			if Input.is_action_pressed("up"):
+				$Jump.play()
 				velocity.y += JUMP_VELOCITY
 				state = States.AIR
 		States.DEAD:
@@ -82,8 +83,9 @@ func hurt(damage: float) -> void:
 	health -= damage
 	clampf(health, 0.0, MAX_HEALTH)
 	
-	if health <= 0:
+	if health <= 0 and state != States.DEAD:
 		state = States.DEAD
+		$GameOver.play()
 		var main = get_tree().get_nodes_in_group("main")[0]
 		main.game_over()
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://uuy3ruaxplwy"]
+[gd_scene load_steps=12 format=3 uid="uid://uuy3ruaxplwy"]
 
 [ext_resource type="Script" path="res://GameObjects/Light.gd" id="1_3f7l6"]
 [ext_resource type="Texture2D" uid="uid://csllib2c1x0wg" path="res://GameAssets/Lighting/light.png" id="2_2cwsh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bvpiahhoic3sc" path="res://GameAssets/Interactables/Light Switch2.png" id="5_qkeux"]
 [ext_resource type="Texture2D" uid="uid://csyudoi8nip14" path="res://GameAssets/Interactables/Light Switch1.png" id="6_11kce"]
 [ext_resource type="Texture2D" uid="uid://c2gv17dxh0yjk" path="res://GameAssets/Interactables/CeilingLightOnV2.png" id="6_22yy1"]
+[ext_resource type="AudioStream" uid="uid://cgqq6op3u8nfw" path="res://GameAssets/SFX/LightSwitch/348224__tbrook__switch-light-06.wav" id="8_nuic6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltwyl"]
 size = Vector2(38, 39)
@@ -64,6 +65,9 @@ offset_right = 107.0
 offset_bottom = -19.0
 theme = SubResource("Theme_1p666")
 text = "Press 'e' to toggle lights"
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nuic6")
 
 [connection signal="area_entered" from="LightSwitch" to="." method="_on_light_switch_area_entered"]
 [connection signal="area_exited" from="LightSwitch" to="." method="_on_light_switch_area_exited"]

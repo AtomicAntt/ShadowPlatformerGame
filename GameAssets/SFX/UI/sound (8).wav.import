@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcmdvnmqc0f75"
+path="res://.godot/imported/sound (8).wav-862d41d503de1d8c205b5a4a79b362c8.sample"
+
+[deps]
+
+source_file="res://GameAssets/SFX/UI/sound (8).wav"
+dest_files=["res://.godot/imported/sound (8).wav-862d41d503de1d8c205b5a4a79b362c8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsbch5oqy2vrh"]
+[gd_scene load_steps=8 format=3 uid="uid://dsbch5oqy2vrh"]
 
 [ext_resource type="Texture2D" uid="uid://c7kanayht7o4h" path="res://GameAssets/Interactables/HealthPotion.png" id="1_0oaia"]
 [ext_resource type="Script" path="res://GameObjects/Objective.gd" id="1_dkhef"]
 [ext_resource type="Texture2D" uid="uid://dl55ws55mfw6d" path="res://GameAssets/Interactables/AllCurePotion.png" id="2_d3hn0"]
 [ext_resource type="Texture2D" uid="uid://bwbkmxy0l4wo" path="res://GameAssets/Interactables/HumanPotion.png" id="4_rsxru"]
+[ext_resource type="AudioStream" uid="uid://cgk8kp23xh87c" path="res://GameAssets/SFX/GoalAccomplished/Retro Event Acute 08.wav" id="5_8hved"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m1xda"]
 animations = [{
@@ -43,5 +44,8 @@ animation = &"HumanPotion"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_t6xe0")
+
+[node name="GoalAccomplished" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8hved")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

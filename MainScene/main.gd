@@ -57,6 +57,7 @@ func reload_level() -> void:
 	load_level("Level"+str(current_level))
 
 func _on_start_pressed():
+	$UIClick.play()
 	load_level("Level0")
 
 func _on_restart_pressed():
@@ -70,4 +71,6 @@ func quit_to_main():
 	$MainMenu.visible = true
 	current_level = 0
 	unload_level()
-	
+
+func _on_button_mouse_entered():
+	$UIHover.play()

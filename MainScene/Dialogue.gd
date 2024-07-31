@@ -15,6 +15,13 @@ func write_text(name: String, textGiven: String) -> void:
 	$DialogueBox/Label.visible_ratio = 0
 	visible = true
 	
+	if name == "Player":
+		$PlayerDialogue.play()
+	elif name == "Talking Computer":
+		$ComputerDialogue.play()
+	elif name == "Max, Head Researcher":
+		$MaxDialogue.play()
+		
 	tween = get_tree().create_tween()
 	tween.tween_property($DialogueBox/Label, "visible_ratio", 1, textGiven.length()/character_per_second)
 
