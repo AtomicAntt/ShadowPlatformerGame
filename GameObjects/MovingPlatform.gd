@@ -1,7 +1,7 @@
 extends Node2D
 
 var duration: float = 5.0
-var speed: float = 32.0
+var speed: float = 50.0
 var original_pos: Vector2
 
 func _ready():

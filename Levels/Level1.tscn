@@ -293,6 +293,9 @@ flip_h = true
 [node name="Objective" parent="." instance=ExtResource("12_xf3d4")]
 position = Vector2(360, 7)
 
+[node name="AnimatedSprite2D" parent="Objective" index="0"]
+animation = &"HealthPotion"
+
 [node name="Instructions" type="Label" parent="." groups=["Instructions"]]
 visible = false
 offset_left = 72.0
@@ -306,3 +309,4 @@ autowrap_mode = 3
 [editable path="Light"]
 [editable path="Door"]
 [editable path="Light2"]
+[editable path="Objective"]

@@ -62,6 +62,30 @@ func start_level_1_text():
 	
 	visible = false
 
+func start_level_2_text():
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.disable_movement()
+	
+	write_text("Player", "Alright, made it to storage room 5B where that all cure potion is located! It's finally time to get cured!")
+	await ConfirmDialogue
+	
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.enable_movement()
+	
+	visible = false
+	
+func start_level_3_text():
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.disable_movement()
+	
+	write_text("Player", "This is room 6C, the place where I will finally become human with that (totally illegal) human potion!")
+	await ConfirmDialogue
+	
+	for player in get_tree().get_nodes_in_group("Player"):
+		player.enable_movement()
+	
+	visible = false
+
 func start_introduction_cutscene():
 	for player in get_tree().get_nodes_in_group("Player"):
 		player.disable_movement()
@@ -155,6 +179,90 @@ func cause_dialogue(id: int) -> void:
 			await ConfirmDialogue
 			
 			write_text("Player", "Okay, I guess I better leave this room and get to that all-cure potion asap!")
+			await ConfirmDialogue
+			
+			for player in get_tree().get_nodes_in_group("Player"):
+				player.enable_movement()
+	
+			for door in get_tree().get_nodes_in_group("Door"):
+				door.unlock()
+			
+			for instructions in get_tree().get_nodes_in_group("Instructions"):
+				instructions.visible = true
+	
+			visible = false
+		1: 
+			for player in get_tree().get_nodes_in_group("Player"):
+				player.disable_movement()
+			
+			write_text("Player", "Looks like this is the all cure potion!")
+			await ConfirmDialogue
+			
+			$DialogueBackground.modulate.a = 1
+			write_text("Player", "[You drink the all cure potion]")
+			await ConfirmDialogue
+			
+			for objective in get_tree().get_nodes_in_group("Objective"):
+				objective.queue_free()
+			
+			$DialogueBackground.modulate.a = 0.2
+			for talking_computer in get_tree().get_nodes_in_group("TalkingComputer"):
+				talking_computer.play("active")
+			write_text("Talking Computer", "Looks like the all cure potion can't cure shadow disease.")
+			await ConfirmDialogue
+			
+			write_text("Player", "Ugh, this is awful, I just want to get back to being human again!")
+			await ConfirmDialogue
+			
+			write_text("Talking Computer", "Just did a quick scan, and it looks like they have been recently working on a new potion that can turn things into human!")
+			await ConfirmDialogue
+			
+			write_text("Player", "Sounds like exactly what I need, to become human again!")
+			await ConfirmDialogue
+			
+			write_text("Talking Computer", "Just go to room 6C, they should have that over there.")
+			await ConfirmDialogue
+			
+			for player in get_tree().get_nodes_in_group("Player"):
+				player.enable_movement()
+	
+			for door in get_tree().get_nodes_in_group("Door"):
+				door.unlock()
+			
+			for instructions in get_tree().get_nodes_in_group("Instructions"):
+				instructions.visible = true
+	
+			visible = false
+		2:
+			for player in get_tree().get_nodes_in_group("Player"):
+				player.disable_movement()
+			
+			write_text("Player", "Finally, I got my hands on the human potion, they really got it locked down.")
+			await ConfirmDialogue
+			
+			$DialogueBackground.modulate.a = 1
+			write_text("Player", "[You drink the human potion]")
+			await ConfirmDialogue
+			
+			for objective in get_tree().get_nodes_in_group("Objective"):
+				objective.queue_free()
+			
+			$DialogueBackground.modulate.a = 0.2
+			for talking_computer in get_tree().get_nodes_in_group("TalkingComputer"):
+				talking_computer.play("active")
+			write_text("Talking Computer", "Wow, I can see it working alright")
+			await ConfirmDialogue
+			
+			write_text("Player", "I can feel now, I can see now, I think I really am all better!")
+			await ConfirmDialogue
+			
+			write_text("Talking Computer", "Yep, you can now bring whatever that guy was some of that water!")
+			await ConfirmDialogue
+			
+			write_text("Player", "You sure you don't wanna find a cure for yourself?")
+			await ConfirmDialogue
+			
+			write_text("Talking Computer", "Nah, I got the internet, just get outta here.")
 			await ConfirmDialogue
 			
 			for player in get_tree().get_nodes_in_group("Player"):

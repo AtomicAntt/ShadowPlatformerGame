@@ -23,6 +23,7 @@ func unload_level() -> void:
 
 func load_level(level_name : String) -> void:
 	$MainMenu.visible = false
+	$Main2D/CanvasLayer/GameOver.visible = false
 	unload_level()
 	var level_path: String = "res://Levels/%s.tscn" % level_name
 	var level_resource: Resource = load(level_path)
@@ -40,6 +41,10 @@ func load_level(level_name : String) -> void:
 			$Main2D/CanvasLayer/Dialogue.start_level_0_text()
 		1:
 			$Main2D/CanvasLayer/Dialogue.start_level_1_text()
+		2:
+			$Main2D/CanvasLayer/Dialogue.start_level_2_text()
+		3:
+			$Main2D/CanvasLayer/Dialogue.start_level_3_text()
 
 func load_next_level() -> void:
 	current_level += 1

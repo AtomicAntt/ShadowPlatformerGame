@@ -1,16 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsbch5oqy2vrh"]
+[gd_scene load_steps=7 format=3 uid="uid://dsbch5oqy2vrh"]
 
 [ext_resource type="Texture2D" uid="uid://c7kanayht7o4h" path="res://GameAssets/Interactables/HealthPotion.png" id="1_0oaia"]
 [ext_resource type="Script" path="res://GameObjects/Objective.gd" id="1_dkhef"]
+[ext_resource type="Texture2D" uid="uid://dl55ws55mfw6d" path="res://GameAssets/Interactables/AllCurePotion.png" id="2_d3hn0"]
+[ext_resource type="Texture2D" uid="uid://bwbkmxy0l4wo" path="res://GameAssets/Interactables/HumanPotion.png" id="4_rsxru"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m1xda"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d3hn0")
+}],
+"loop": true,
+"name": &"AllCurePotion",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_0oaia")
 }],
 "loop": true,
 "name": &"HealthPotion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rsxru")
+}],
+"loop": true,
+"name": &"HumanPotion",
 "speed": 5.0
 }]
 
@@ -21,7 +39,7 @@ script = ExtResource("1_dkhef")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m1xda")
-animation = &"HealthPotion"
+animation = &"HumanPotion"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_t6xe0")

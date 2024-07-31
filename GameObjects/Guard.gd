@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var direction: float = 1
-var speed: float = 50
+@export var speed: float = 50
 
 func _physics_process(delta):
 	velocity.x = direction * speed
