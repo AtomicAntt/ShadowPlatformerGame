@@ -1,6 +1,12 @@
 # Shadow Platformer Game
 Cure the Shadow is a 2D platformer stealth game where you hide in shadows and must avoid light sources by turning off light switches and running under moving platforms.
 
+Game Link: https://atomicant.itch.io/cure-the-shadow
+
+Rating Link: https://itch.io/jam/pirate/rate/2867733
+
+Game Design Document Link: https://docs.google.com/document/d/1VoX4-0wtzw0Z8N-UtNUogi6kJ9NTrqfePNt9mp4puyM/edit?usp=sharing
+
 Made with Godot Engine v4.2.2
 
 # Building and Running the game
